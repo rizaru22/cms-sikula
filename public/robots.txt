@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://smkn1karangbaru.sch.id/sitemap.xml

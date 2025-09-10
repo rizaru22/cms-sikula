@@ -9,10 +9,13 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AchievementController;
 
 // Route::get('/', function () {
-//     return view('welcome');
-// });
+//     return view('layouts.app', [
+//         'title' => 'Home',
+//         'menu'=>'dashboard'
+//     ]);
+// })->name('ad');
 
-Route::prefix('admin')->middleware('auth')->group(function() {
+Route::prefix('admin')->group(function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('profile', ProfileController::class)->names('admin.profile');
     Route::resource('news', NewsController::class)->names('admin.news');

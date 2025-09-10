@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('short_name');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('logo')->nullable();
             $table->text('welcome_message');
             $table->text('history');
             $table->text('vision');

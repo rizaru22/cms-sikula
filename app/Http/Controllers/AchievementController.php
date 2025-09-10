@@ -28,6 +28,7 @@ class AchievementController extends Controller
             'image' => 'nullable|string',
         ]);
         Achievement::create($request->all());
+        Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.achievement.index')->with('success', 'Prestasi berhasil ditambahkan');
     }
 

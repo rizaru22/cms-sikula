@@ -26,6 +26,7 @@ class NewsController extends Controller
             'published_at' => 'nullable|date',
         ]);
         News::create($request->all());
+        Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.news.index')->with('success', 'Berita berhasil ditambahkan');
     }
 
