@@ -1,4 +1,4 @@
-<li class="breadcrumb-item"><a href="route('/')">Home</a></li>
+<li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                @if(isset($breadcrumbs))
                     @foreach($breadcrumbs as $label => $url)
                         @if($loop->last)

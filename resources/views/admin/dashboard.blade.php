@@ -1,40 +1,27 @@
 @extends('layouts.app')
+@section('title', 'Dashboard')
+@section('page_title', 'Dashboard')
 @section('content')
-<div class="row">
-  <div class="col-md-12">
-    <div class="card mb-4">
-      <div class="card-header bg-primary text-white">Dashboard Admin</div>
-      <div class="card-body">
-        <h5>Selamat datang di Panel Admin Website Sekolah!</h5>
-        <p>Gunakan menu di samping untuk mengelola profil sekolah, berita, dan prestasi.</p>
-        <div class="row text-center mt-4">
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h6 class="card-title">Profil Sekolah</h6>
-                <a href="{{ route('admin.profile.index') }}" class="btn btn-success btn-sm">Kelola Profil</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h6 class="card-title">Berita</h6>
-                <a href="{{ route('admin.news.index') }}" class="btn btn-warning btn-sm">Kelola Berita</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h6 class="card-title">Prestasi</h6>
-                <a href="{{ route('admin.achievement.index') }}" class="btn btn-danger btn-sm">Kelola Prestasi</a>
-              </div>
-            </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Title</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
           </div>
         </div>
+        <div class="card-body">
+          Start creating your amazing application!
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          Footer
+        </div>
+        <!-- /.card-footer-->
       </div>
-    </div>
-  </div>
-</div>
 @endsection

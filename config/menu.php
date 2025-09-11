@@ -48,20 +48,20 @@
             'icon'=>'fas fa-cogs',
             'children'=>[
                 [
-                    'label'=>'Profil',
+                    'label'=>'Profil Sekolah',
                     'icon'=>'fas fa-address-card',
                     'route'=>'admin.profile.index',
                     'permission'=>null
                 ],
                 [
-                    'label'=>'Pengguna',
-                    'icon'=>'fas fa-users',
+                    'label'=>'Carousel',
+                    'icon'=>'fas fa-images',
                     'route'=>'admin.achievement.index',
                     'permission'=>null
                 ],
                 [
-                    'label'=>'Carousel',
-                    'icon'=>'fas fa-images',
+                    'label'=>'Pengguna',
+                    'icon'=>'fas fa-users',
                     'route'=>'admin.achievement.index',
                     'permission'=>null
                 ],

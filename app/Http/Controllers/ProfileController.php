@@ -10,7 +10,11 @@ class ProfileController extends Controller
     public function index()
     {
         $profile = Profile::first();
-        return view('admin.profile.index', compact('profile'));
+        $breadcrumbs=[
+            'Pengaturan' => '#',
+            'Profil' => route('admin.profile.index'),
+        ];
+        return view('admin.profile.index', compact('profile','breadcrumbs'));
     }
 
     public function edit()
