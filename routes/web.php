@@ -22,6 +22,7 @@ Route::prefix('admin')->group(function() {
     Route::resource('news', NewsController::class)->names('admin.news');
     Route::resource('achievement', AchievementController::class)->names('admin.achievement');
     Route::post('/summernote/upload', [SummernoteController::class, 'upload'])->name('admin.summernote.upload');
+    Route::resource('carousel', \App\Http\Controllers\CarouselController::class)->names('admin.carousel');
 });
 
 

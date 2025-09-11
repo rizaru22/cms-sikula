@@ -56,7 +56,7 @@
                 [
                     'label'=>'Carousel',
                     'icon'=>'fas fa-images',
-                    'route'=>'admin.achievement.index',
+                    'route'=>'admin.carousel.index',
                     'permission'=>null
                 ],
                 [
