@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 
   @yield('styles')
+  @stack('styles')
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -77,4 +78,5 @@
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 @yield('scripts')
+@stack('scripts')
 </html>

@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SummernoteController;
 use App\Http\Controllers\AchievementController;
 
 // Route::get('/', function () {
@@ -20,6 +21,7 @@ Route::prefix('admin')->group(function() {
     Route::resource('profile', ProfileController::class)->names('admin.profile');
     Route::resource('news', NewsController::class)->names('admin.news');
     Route::resource('achievement', AchievementController::class)->names('admin.achievement');
+    Route::post('/summernote/upload', [SummernoteController::class, 'upload'])->name('admin.summernote.upload');
 });
 
 

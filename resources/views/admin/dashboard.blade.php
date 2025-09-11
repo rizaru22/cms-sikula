@@ -2,7 +2,7 @@
 @section('title', 'Dashboard')
 @section('page_title', 'Dashboard')
 @section('content')
-      <div class="card">
+      <div class="card ml-3 mr-3">
         <div class="card-header">
           <h3 class="card-title">Title</h3>
 
