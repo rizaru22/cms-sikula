@@ -16,7 +16,7 @@
                         <div class="card bg-light d-flex flex-fill">
                             <div class="card-body pt-2">
                                 <img src="{{ asset('storage/' . $carousel->image) }}"
-                                    alt="image-carousel-{{ $carousel->updated_at }}" class="img-fluid">
+                                    alt="image-carousel-{{ $carousel->updated_at }}" class="d-block w-100" style="height: 400px; object-fit: cover">
                             </div>
                             <div class="card-footer">
                                 <div class="text-right">

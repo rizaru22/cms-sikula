@@ -9,12 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SummernoteController;
 use App\Http\Controllers\AchievementController;
 
-// Route::get('/', function () {
-//     return view('layouts.app', [
-//         'title' => 'Home',
-//         'menu'=>'dashboard'
-//     ]);
-// })->name('ad');
+Route::get('/',\App\Livewire\Dashboard::class)->name('home');
 
 Route::prefix('admin')->group(function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
