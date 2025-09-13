@@ -9,7 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SummernoteController;
 use App\Http\Controllers\AchievementController;
 
-Route::get('/',\App\Livewire\Dashboard::class)->name('home');
+
 
 Route::prefix('admin')->group(function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -20,7 +20,8 @@ Route::prefix('admin')->group(function() {
     Route::resource('carousel', \App\Http\Controllers\CarouselController::class)->names('admin.carousel');
 });
 
-
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/',\App\Livewire\Dashboard::class)->name('home');
+Route::get('/berita/{slug}', \App\Livewire\Berita::class)->name('news.detail');

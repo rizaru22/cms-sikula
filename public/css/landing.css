@@ -1,156 +1,204 @@
 /* Landing Page Stylesheet */
-      :root {
-        /* Palet lembut yang nyaman di mata */
-        --bg: #fafaf7; /* latar konten */
-        --surface: #ffffff; /* kartu/section */
-        --text: #263238; /* teks utama abu gelap */
-        --muted: #6b7a85; /* teks sekunder */
-        --primary: #2e7d32; /* hijau utama */
-        --primary-600: #2a6f2e; /* hover */
-        --primary-50: #e8f3ea; /* latar lembut */
-        --accent: #fbc02d; /* kuning aksen */
-        --accent-50: #fff7db; /* kuning sangat lembut */
-        --ring: #dce5dd; /* garis halus */
-        --footer: #1b3b22; /* hijau tua untuk footer */
-      }
-      body {
-        background: var(--bg);
-        color: var(--text);
-      }
-      .navbar {
-        background: var(--primary);
-      }
-      .navbar .nav-link,
-      .navbar-brand {
-        color: #fff !important;
-      }
-      .navbar .nav-link:hover,
-      .navbar .dropdown-item:hover {
-        color: #fff;
-        background: var(--primary-600);
-      }
-      .dropdown-menu {
-        border: 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      }
+:root {
+  /* Palet lembut yang nyaman di mata */
+  --bg: #fafaf7;
+  /* latar konten */
+  --surface: #ffffff;
+  /* kartu/section */
+  --text: #263238;
+  /* teks utama abu gelap */
+  --muted: #6b7a85;
+  /* teks sekunder */
+  --primary: #2e7d32;
+  /* hijau utama */
+  --primary-600: #2a6f2e;
+  /* hover */
+  --primary-50: #e8f3ea;
+  /* latar lembut */
+  --accent: #fbc02d;
+  /* kuning aksen */
+  --accent-50: #fff7db;
+  /* kuning sangat lembut */
+  --ring: #dce5dd;
+  /* garis halus */
+  --footer: #1b3b22;
+  /* hijau tua untuk footer */
+}
 
-      /* Hero / Carousel */
-      .carousel-caption {
-        backdrop-filter: blur(6px);
-        background: rgba(30, 60, 35, 0.35);
-        border-radius: 0.75rem;
-      }
-      .rounded-2xl {
-        border-radius: 1rem;
-      }
-      .section-title {
-        font-weight: 700;
-        letter-spacing: 0.2px;
-      }
-      .card {
-        border: 1px solid var(--ring);
-      }
-      .card-header {
-        background: var(--primary-50);
-        border-bottom: 1px solid var(--ring);
-      }
-      .badge-accent {
-        background: var(--accent-50);
-        color: #7a5b00;
-        border: 1px solid #f0e3a5;
-      }
-      .btn-primary {
-        background: var(--primary);
-        border-color: var(--primary);
-      }
-      .btn-primary:hover {
-        background: var(--primary-600);
-        border-color: var(--primary-600);
-      }
-      .link-accent {
-        color: var(--primary);
-      }
-      .link-accent:hover {
-        color: var(--primary-600);
-      }
+body {
+  background: var(--bg);
+  color: var(--text);
+}
 
-      /* Pagination */
-      .pagination .page-link {
-        color: var(--primary);
-      }
-      .pagination .page-link:hover {
-        background: var(--primary-50);
-      }
-      .pagination .active .page-link {
-        color:var(--bg);
-        background: var(--primary);
-        border-color: var(--primary);
-      }
+.navbar {
+  background: var(--primary);
+}
 
-      /* Footer */
-      footer {
-        background: var(--footer);
-        color: #e7eee9;
-      }
-      footer a {
-        color: #e7eee9;
-        text-decoration: none;
-      }
-      footer a:hover {
-        color: var(--accent);
-      }
+.navbar .nav-link,
+.navbar-brand {
+  color: #fff !important;
+}
 
-      .navbar {
-        background: var(--primary);
-        min-height: 60px;
-      }
+.navbar .nav-link:hover,
+.navbar .dropdown-item:hover {
+  color: #fff;
+  background: var(--primary-600);
+}
 
-      .navbar-logo {
-        height: 40px;
-        width: 40px;
-        object-fit: contain;
-      }
+.dropdown-menu {
+  border: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
 
-      @media (max-width: 991.98px) {
-        .navbar-logo {
-          height: 32px;
-          width: 32px;
-        }
-        .navbar-brand span {
-          font-size: 1rem;
-        }
-        .navbar-nav .nav-link {
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
-        }
-      }
+/* Hero / Carousel */
+.carousel-caption {
+  backdrop-filter: blur(6px);
+  background: rgba(30, 60, 35, 0.35);
+  border-radius: 0.75rem;
+}
 
-      @media (max-width: 575.98px) {
-        .navbar {
-          min-height: 48px;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
-        }
-        .navbar-logo {
-          height: 28px;
-          width: 28px;
-        }
-      }
+.rounded-2xl {
+  border-radius: 1rem;
+}
 
-      /* Dropdown menu sesuai tema */
-      .dropdown-menu {
-        background: var(--primary-50);
-        color: var(--text);
-        border: 1px solid var(--primary-600);
-      }
+.section-title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
 
-      .dropdown-menu .dropdown-item {
-        color: var(--primary);
-        transition: background 0.2s, color 0.2s;
-      }
+.card {
+  border: 1px solid var(--ring);
+}
 
-      .dropdown-menu .dropdown-item:hover,
-      .dropdown-menu .dropdown-item:focus {
-        background: var(--accent-50);
-        color: var(--accent);
-      }
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-header {
+  background: var(--primary-50);
+  border-bottom: 1px solid var(--ring);
+}
+
+.badge-accent {
+  background: var(--accent-50);
+  color: #7a5b00;
+  border: 1px solid #f0e3a5;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-600);
+  border-color: var(--primary-600);
+}
+
+.link-accent {
+  color: var(--primary);
+}
+
+.link-accent-title,
+.link-accent-title:focus,
+.link-accent-title:active {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+.link-accent-title:hover {
+  color: var(--footer); /* atau warna lain */
+}
+
+.link-accent:hover {
+  color: var(--primary-600);
+}
+
+/* Pagination */
+.pagination .page-link {
+  color: var(--primary);
+}
+
+.pagination .page-link:hover {
+  background: var(--primary-50);
+}
+
+.pagination .active .page-link {
+  color: var(--bg);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Footer */
+footer {
+  background: var(--footer);
+  color: #e7eee9;
+}
+
+footer a {
+  color: #e7eee9;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+.navbar {
+  background: var(--primary);
+  min-height: 60px;
+}
+
+.navbar-logo {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-logo {
+    height: 32px;
+    width: 32px;
+  }
+
+  .navbar-brand span {
+    font-size: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar {
+    min-height: 48px;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .navbar-logo {
+    height: 28px;
+    width: 28px;
+  }
+}
+
+/* Dropdown menu sesuai tema */
+.dropdown-menu {
+  background: var(--primary-50);
+  color: var(--text);
+  border: 1px solid var(--primary-600);
+}
+
+.dropdown-menu .dropdown-item {
+  color: var(--primary);
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  background: var(--accent-50);
+  color: var(--accent);
+}

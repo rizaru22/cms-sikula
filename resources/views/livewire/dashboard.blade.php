@@ -49,102 +49,33 @@
               <div class="card-body">
                 <div class="row g-4">
                   <!-- item berita -->
-                  <div class="col-md-6">
+                  @foreach($news as $item)
+                    <div class="col-md-6">
                     <article class="card h-100">
                       <img
-                        src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop"
+                        src="{{asset('storage/'.$item->image)}}"
                         class="card-img-top"
-                        alt="Berita 1"
+                        alt="{{$item->title}}"
                       />
                       <div class="card-body">
-                        <h5 class="card-title">Kegiatan MPLS 2025</h5>
+                        <h5 class="card-title"> <a href="{{route('news.detail',$item->slug)}}" class="link-accent-title">{{ \Illuminate\Support\Str::limit(strip_tags($item->title), 50, '...')}}</a></h5>
                         <p class="card-text text-muted">
-                          Pengenalan lingkungan sekolah berjalan tertib dan
-                          menyenangkan.
+                          {!! \Illuminate\Support\Str::limit(strip_tags($item->content), 100, '...')!!}
                         </p>
-                        <a href="#" class="link-accent"
+                        <a href="{{route('news.detail',$item->slug)}}" class="link-accent"
                           >Baca selengkapnya <i class="bi bi-arrow-right"></i
                         ></a>
                       </div>
                     </article>
-                  </div>
-                  <div class="col-md-6">
-                    <article class="card h-100">
-                      <img
-                        src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop"
-                        class="card-img-top"
-                        alt="Berita 2"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Peresmian Laboratorium Baru</h5>
-                        <p class="card-text text-muted">
-                          Menunjang proses pembelajaran praktik siswa.
-                        </p>
-                        <a href="#" class="link-accent"
-                          >Baca selengkapnya <i class="bi bi-arrow-right"></i
-                        ></a>
-                      </div>
-                    </article>
-                  </div>
-                  <div class="col-md-6">
-                    <article class="card h-100">
-                      <img
-                        src="assets/images/1.jpg"
-                        class="card-img-top"
-                        alt="Berita 3"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Workshop Kewirausahaan</h5>
-                        <p class="card-text text-muted">
-                          Mendorong jiwa edutechnopreneur siswa.
-                        </p>
-                        <a href="#" class="link-accent"
-                          >Baca selengkapnya <i class="bi bi-arrow-right"></i
-                        ></a>
-                      </div>
-                    </article>
-                  </div>
-                  <div class="col-md-6">
-                    <article class="card h-100">
-                      <img
-                        src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1200&auto=format&fit=crop"
-                        class="card-img-top"
-                        alt="Berita 4"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Lomba Cerdas Cermat</h5>
-                        <p class="card-text text-muted">
-                          Tim sekolah meraih juara 1 tingkat kabupaten.
-                        </p>
-                        <a href="#" class="link-accent"
-                          >Baca selengkapnya <i class="bi bi-arrow-right"></i
-                        ></a>
-                      </div>
-                    </article>
-                  </div>
+                  </div>  
+                  @endforeach
+                  
+             
                 </div>
               </div>
               <!-- Pagination Berita -->
               <div class="card-footer bg-white d-flex justify-content-center">
-                <nav aria-label="Pagination berita">
-                  <ul class="pagination my-0">
-                    <li class="page-item disabled">
-                      <span class="page-link">&laquo;</span>
-                    </li>
-                    <li class="page-item active">
-                      <span class="page-link">1</span>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">&raquo;</a>
-                    </li>
-                  </ul>
-                </nav>
+              {{ $news->links('vendor.pagination.custom') }}
               </div>
             </div>
           </div>

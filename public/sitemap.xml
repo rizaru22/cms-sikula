@@ -3,17 +3,47 @@
 
     <!-- Halaman statis -->
     <url>
-        <loc>http://localhost</loc>
+        <loc>https://smws.dev</loc>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://localhost/profil-sekolah</loc>
+        <loc>https://smws.dev/profil-sekolah</loc>
         <priority>0.8</priority>
     </url>
 
     <!-- Produk Sekolah -->
     
     <!-- Berita Sekolah -->
+        <url>
+        <loc>https://smws.dev/berita/in-house-training-proses-pembelajaran-guru-di-smk-negeri-1-karang-baru</loc>
+        <lastmod>2025-09-13T16:01:26+07:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+        <url>
+        <loc>https://smws.dev/berita/guru-smkn-1-karang-baru-terbitkan-2-buku-inspiratif</loc>
+        <lastmod>2025-09-13T16:00:09+07:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+        <url>
+        <loc>https://smws.dev/berita/pengumuman-kelulusan-2025</loc>
+        <lastmod>2025-09-13T15:59:13+07:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+        <url>
+        <loc>https://smws.dev/berita/smk-negeri-1-karang-baru-tebar-kepedulian-lewat-qurban-pererat-ukhuwah-dan-nilai-spiritual</loc>
+        <lastmod>2025-09-13T15:57:25+07:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+        <url>
+        <loc>https://smws.dev/berita/tiga-siswa-smkn-1-karang-baru-raih-juara-1-lks-provinsi-aceh-2025-siap-melaju-ke-tingkat-nasional</loc>
+        <lastmod>2025-09-13T15:24:54+07:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
     
      <!-- Prestasi Sekolah -->
          <!-- Kompetensi Keahlian -->
