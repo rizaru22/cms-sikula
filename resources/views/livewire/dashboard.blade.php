@@ -1,12 +1,12 @@
 <div>
     <!-- Carousel -->
-    <div id="schoolCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselElegant" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
       @foreach($carousels as $carousel)
             <div class="carousel-item {{$loop->first?'active':''}}">
           <img
             src="{{asset('storage/'.$carousel->image)}}"
-            class="d-block w-100"
+            class="d-block w-100 elegant-img"
             alt="{{$profile->short_name}}-{{$loop->iteration}}"
             style="height: 400px; object-fit: cover"
           />
@@ -18,7 +18,7 @@
       <button
         class="carousel-control-prev"
         type="button"
-        data-bs-target="#schoolCarousel"
+        data-bs-target="#carouselElegant"
         data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon"></span>
@@ -26,7 +26,7 @@
       <button
         class="carousel-control-next"
         type="button"
-        data-bs-target="#schoolCarousel"
+        data-bs-target="#carouselElegant"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon"></span>
@@ -44,7 +44,7 @@
                 class="card-header d-flex justify-content-between align-items-center"
               >
                 <h3 class="m-0 section-title">Berita Terbaru</h3>
-                <a class="btn btn-sm btn-primary" href="#berita">Lihat Semua</a>
+                <a class="btn btn-sm btn-primary" href="{{route('news.list')}}">Lihat Semua</a>
               </div>
               <div class="card-body">
                 <div class="row g-4">
@@ -59,7 +59,7 @@
                       />
                       <div class="card-body">
                         <h5 class="card-title"> <a href="{{route('news.detail',$item->slug)}}" class="link-accent-title">{{ \Illuminate\Support\Str::limit(strip_tags($item->title), 50, '...')}}</a></h5>
-                        <p class="card-text text-muted">
+                        <p class="card-text ">
                           {!! \Illuminate\Support\Str::limit(strip_tags($item->content), 100, '...')!!}
                         </p>
                         <a href="{{route('news.detail',$item->slug)}}" class="link-accent"
@@ -74,13 +74,13 @@
                 </div>
               </div>
               <!-- Pagination Berita -->
-              <div class="card-footer bg-white d-flex justify-content-center">
+              <div class="card-footer bg-white d-flex justify-content-center border-0">
               {{ $news->links('vendor.pagination.custom') }}
               </div>
             </div>
-          </div>
+          </div> 
 
-          <!-- Pengumuman (Grid 4) -->
+          <!-- Pengumuman (Grid 4) --> 
           <div class="col-lg-4">
             <div class="card">
               <div class="card-header">
@@ -197,70 +197,40 @@
           <a href="#" class="btn btn-primary btn-sm">Lihat Semua</a>
         </div>
         <div class="row g-4">
+          @foreach($achievement as $item)
           <div class="col-md-4">
             <div class="card h-100">
+              @if($item->image)
+
               <img
-                src="assets/images/carousel3.jpg"
+                src="{{asset('storage/'.$item->image)}}"
                 class="card-img-top"
-                alt="Juara LKS Web"
+                alt="{{$item->title}}"
               />
+              @else
+              <img
+                src="{{asset('images/no-image.png')}}"
+                class="card-img-top"
+                alt="{{$item->title}}"
+              />
+              @endif
               <div class="card-body">
                 <span class="badge badge-accent mb-2"
-                  ><i class="bi bi-calendar-event"></i> 12 Juli 2025</span
+                  ><i class="bi bi-calendar-event"></i> {{$item->date->format('d F Y')}}</span
                 >
+                <span class="badge badge-accent mb-2"
+                  ><i class="bi bi-award"></i> {{$item->category}}</span>
                 <div class="d-flex align-items-center mb-2">
                   <i class="bi bi-trophy fs-3 me-2 text-warning"></i>
-                  <h5 class="m-0">Juara LKS Web</h5>
+                  <h5 class="m-0">{{$item->title}}</h5>
                 </div>
                 <p class="text-muted">
-                  Siswa meraih medali emas pada Lomba Kompetensi Siswa tingkat
-                  provinsi.
+                 {{$item->description}}
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card h-100">
-              <img
-                src="assets/images/carousel2.jpg"
-                class="card-img-top"
-                alt="Juara Futsal"
-              />
-              <div class="card-body">
-                <span class="badge badge-accent mb-2"
-                  ><i class="bi bi-calendar-event"></i> 28 Juni 2025</span
-                >
-                <div class="d-flex align-items-center mb-2">
-                  <i class="bi bi-trophy fs-3 me-2 text-warning"></i>
-                  <h5 class="m-0">Juara Futsal</h5>
-                </div>
-                <p class="text-muted">
-                  Tim futsal sekolah menjuarai turnamen antar pelajar kabupaten.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card h-100">
-              <img
-                src="assets/images/carousel1.jpg"
-                class="card-img-top"
-                alt="Paduan Suara"
-              />
-              <div class="card-body">
-                <span class="badge badge-accent mb-2"
-                  ><i class="bi bi-calendar-event"></i> 15 Mei 2025</span
-                >
-                <div class="d-flex align-items-center mb-2">
-                  <i class="bi bi-trophy fs-3 me-2 text-warning"></i>
-                  <h5 class="m-0">Paduan Suara</h5>
-                </div>
-                <p class="text-muted">
-                  Meraih juara favorit pada festival seni sekolah se-Provinsi.
-                </p>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </section>{{-- Because she competes with no one, no one can compete with her. --}}

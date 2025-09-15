@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class ProfileController extends Controller
 {
@@ -54,6 +56,7 @@ class ProfileController extends Controller
         ]);
         if ($request->hasFile('logo')) {
             $logoPath = $request->file('logo')->store('logos', 'public');
+            $this->generateFavicon($logoPath,32);
         }
 
         $profile = Profile::first();
@@ -80,4 +83,17 @@ class ProfileController extends Controller
 
         return redirect()->route('admin.profile.index')->with('success', 'Profil berhasil diperbarui');
     }
+
+    public function generateFavicon($path,$size)
+{
+    // dd(public_path($path), file_exists(public_path($path)));
+
+     $manager = new ImageManager(new Driver());
+
+    $img = $manager->read(storage_path('app/public/'.$path))
+                   ->resize($size, $size)
+                   ->encodeByExtension('png');
+    Storage::disk('public')->put('logos/favicon.ico', $img);
+
+}
 }

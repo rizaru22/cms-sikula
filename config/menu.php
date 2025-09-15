@@ -25,19 +25,19 @@
                 [
                     'label'=>'Pengumuman',
                     'icon'=>'fas fa-bullhorn',
-                    'route'=>'admin.achievement.index',
+                    'route'=>'admin.announcement.index',
                     'permission'=>null
                 ],
                 [
                     'label'=>'Agenda',
                     'icon'=>'fas fa-calendar-day',
-                    'route'=>'admin.achievement.index',
+                    'route'=>'admin.agenda.index',
                     'permission'=>null
                 ],
                 [
                     'label'=>'Produk',
                     'icon'=>'fas fa-cart-plus',
-                    'route'=>'admin.achievement.index',
+                    'route'=>'admin.product.index',
                     'permission'=>null
                 ],
             ]
@@ -62,7 +62,7 @@
                 [
                     'label'=>'Pengguna',
                     'icon'=>'fas fa-users',
-                    'route'=>'admin.achievement.index',
+                    'route'=>'admin.users.index',
                     'permission'=>null
                 ],
             ]

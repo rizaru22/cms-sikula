@@ -62,7 +62,12 @@ class NewsController extends Controller
 
     public function edit(News $news)
     {
-        return view('admin.news.edit', compact('news'));
+         $breadcrumbs=[
+            'Konten' => '#',
+            'Berita' => route('admin.news.index'),
+            'Edit Berita' => route('admin.news.edit',$news->id),
+        ];
+        return view('admin.news.edit', compact('news','breadcrumbs'));
     }
 
     public function update(Request $request, News $news)
@@ -104,7 +109,11 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::findOrFail($id);
-
-        return view('admin.news.show', compact('news'));
+         $breadcrumbs=[
+            'Konten' => '#',
+            'Berita' => route('admin.news.index'),
+            'Tampil Berita' => route('admin.news.show',$news->id),
+        ];
+        return view('admin.news.show', compact('news','breadcrumbs'));
     }
 }

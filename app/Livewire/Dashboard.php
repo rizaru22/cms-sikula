@@ -4,7 +4,9 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
+/**
+ * @method \Livewire\Component layout(string $view, array $data = [])
+ */
 class Dashboard extends Component
 {
     use WithPagination;
@@ -19,8 +21,13 @@ class Dashboard extends Component
                 ->orderBy('published_at','desc')
                 ->paginate(4);
                 
-        // dd($news);
-        return view('livewire.dashboard',['carousels'=>$carousels,'news'=>$news])
+        $achievement=\App\Models\Achievement::all()->sortByDesc('date')->take(3);
+
+        return view('livewire.dashboard',[
+                    'carousels'=>$carousels,
+                    'news'=>$news,
+                    'achievement'=>$achievement
+                    ])  
                 ->layout('layouts.landing',[
                     'title'=>'Beranda',
                     'description'=>$profile->welcome_message,

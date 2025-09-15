@@ -2,14 +2,14 @@
 @section('title','Berita')
 @section('page_title', 'Daftar Berita')
 @section('content')
-<div class="card ml-3 mr-3">
+<div class="card ml-2 mr-2">
     <div class="card-header">
         <div class="text-right">
         <a href="{{ route('admin.news.create') }}" class="btn btn-success"><i class="fas fa-plus"></i>&nbsp;Berita</a>
         </div>
     </div>
     <div class="card-body">
-        <x-datatable :columns="['No','Judul', 'Tanggal Dibuat', 'Aksi']" id="newsTable">
+        <x-datatable :columns="['No','Judul', 'Tanggal Terbit', 'Aksi']" id="newsTable">
             @foreach($news as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>

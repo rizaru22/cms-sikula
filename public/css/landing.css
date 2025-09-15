@@ -156,6 +156,22 @@ footer a:hover {
   object-fit: contain;
 }
 
+.elegant-img {
+  transition: transform 6s ease, opacity 2s ease;
+}
+
+.carousel-item.active .elegant-img {
+  transform: scale(1.1); /* zoom in lembut */
+  opacity: 1;
+}
+
+.carousel-item-next .elegant-img,
+.carousel-item-prev .elegant-img {
+  transform: scale(1);
+  opacity: 0.8;
+}
+
+
 @media (max-width: 991.98px) {
   .navbar-logo {
     height: 32px;
