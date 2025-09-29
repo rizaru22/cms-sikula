@@ -194,7 +194,7 @@
       <div class="container">
         <div class="d-flex align-items-center justify-content-between mb-3">
           <h3 class="section-title m-0">Prestasi Terbaru</h3>
-          <a href="#" class="btn btn-primary btn-sm">Lihat Semua</a>
+          <a href="{{route('achievement.list')}}" class="btn btn-primary btn-sm">Lihat Semua</a>
         </div>
         <div class="row g-4">
           @foreach($achievement as $item)

@@ -10,6 +10,16 @@ class DaftarPrestasi extends Component
     use WithPagination;
     public function render()
     {
-        return view('livewire.daftar-prestasi');
+        $profile = \App\Models\Profile::first();
+        $daftar_prestasi = \App\Models\Achievement::where('date','<=',now())
+                ->orderBy('date','desc')
+                ->paginate(9);
+        return view('livewire.daftar-prestasi',['daftar_prestasi'=>$daftar_prestasi])
+            ->layout('layouts.landing',[
+                'title'=>'Daftar Prestasi',
+                'description'=>'Berisi daftar prestasi terbaru pada'.$profile->name,
+                'image'=> asset('storage/'.$profile->logo),
+            ]);
+      
     }
 }
