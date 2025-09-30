@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('image')->nullable();
-            $table->deimal('price',12,2)->nullable();
+            $table->decimal('price',12,2)->nullable();
             $table->text('description')->nullable();
             $table->string('contact_person');
             $table->string('category')->nullable();  // Kategori produk (makanan, jasa, kerajinan, dll)

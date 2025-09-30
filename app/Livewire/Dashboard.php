@@ -12,14 +12,12 @@ class Dashboard extends Component
     use WithPagination;
     public function render()
     {
-        $carousels = \App\Models\Carousel::all()
-                        ->where('status','active');
-
+        $carousels = \App\Models\Carousel::where('status','active')->get();
         $profile = \App\Models\Profile::first();
 
         $news = \App\Models\News::where('published_at','<=',now())
                 ->orderBy('published_at','desc')
-                ->paginate(4);
+                ->paginate(6);
                 
         $achievement=\App\Models\Achievement::all()->sortByDesc('date')->take(3);
 

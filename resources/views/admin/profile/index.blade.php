@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('title', 'Profil Sekolah')
 @section('page_title', 'Profil Sekolah')
+@push('styles')
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+@endpush
 @section('content')
 
             <!-- Profile Image -->
@@ -52,11 +59,11 @@
                 <strong><i class="fab fa-youtube"></i> Youtube</strong>
                 <p class="text-muted">{{$profile->youtube}}</p>
                 <hr>
-                <strong><i class="fab fa-facebook"></i> Facebook</strong>
-                <p class="text-muted">{{$profile->facebook}}</p>
+                <strong><i class="bi bi-threads"></i> Thread</strong>
+                <p class="text-muted">{{$profile->thread}}</p>
                 <hr>
-                <strong><i class="fab fa-facebook"></i> Facebook</strong>
-                <p class="text-muted">{{$profile->facebook}}</p>
+                <strong><i class="bi bi-twitter-x"></i> Twitter</strong>
+                <p class="text-muted">{{$profile->twitter}}</p>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">

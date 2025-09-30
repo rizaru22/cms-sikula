@@ -32,7 +32,8 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-       
+        Storage::disk('public')->put('test.txt', 'halo dunia');
+
         $request->validate([
             'name' => 'required|string|max:255',
             'short_name' => 'required|string|max:100',
@@ -55,10 +56,10 @@ class ProfileController extends Controller
             'logo.max' => 'Ukuran logo maksimal 2MB.',
         ]);
         if ($request->hasFile('logo')) {
-            $logoPath = $request->file('logo')->store('logos', 'public');
-            $this->generateFavicon($logoPath,32);
+            // dd($request->file('logo'));
+            $logoPath = $request->file('logo')->store('logos','public');
         }
-
+        
         $profile = Profile::first();
         $profile->name=$request->name;
         $profile->short_name=$request->short_name;
@@ -66,21 +67,26 @@ class ProfileController extends Controller
         $profile->phone=$request->phone;
         $profile->address=$request->address;
         if ($request->hasFile('logo')) {
-            if ($profile->logo && Storage::disk('public')->exists($profile->logo)) {
+            if (!empty($profile->logo) && Storage::disk('public')->exists($profile->logo)) {
                 Storage::disk('public')->delete($profile->logo);
             }
             
             $profile->logo=$logoPath;
-
+            $this->generateFavicon($logoPath,32);
         }
-        // dd($request);
+        
         $profile->welcome_message=$request->welcome_message;
         $profile->history=$request->history;
         $profile->vision=$request->vision;
         $profile->mission=$request->mission;
+        $profile->facebook=$request->facebook;
+        $profile->instagram=$request->instagram;
+        $profile->twitter=$request->twitter;
+        $profile->youtube=$request->youtube;
+        $profile->thread=$request->thread;
 
         $profile->save();
-
+        
         return redirect()->route('admin.profile.index')->with('success', 'Profil berhasil diperbarui');
     }
 

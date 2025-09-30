@@ -57,7 +57,7 @@
           class="border-top border-light-subtle mt-4 pt-1 pb-4 d-flex justify-content-between"
         >
           <span class="small">© 2025  {{config('app.name')}}-{{config('app.version')}}</span>
-          @include('partials.sosialmedia')
+          @include('partials.socialmedia')
         </div>
       </div>
     </footer>

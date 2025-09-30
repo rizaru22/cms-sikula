@@ -1,8 +1,8 @@
 <div>
     {{-- In work, do what you enjoy. --}}
     <div class="container">
-        <div class="row g-4 align-items-stretch pt-4 pb-4 pe-4 ps-0">
-            <div class="col-8 ">
+        <div class="row g-4 align-items-stretch pt-4 pb-4 pe-0 ps-0">
+            <div class="col-lg-8 col-md-9 col-sm-12"> 
                 <div class="card shadow-sm border-0 mb-4 mr-4 ml">
                    
                     <h1 class="mb-3 section-title">{{ $news->title }}</h1>
@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-             <div class="col-lg-4">
+             <div class="col-lg-4 col-md-3 col-sm-12">
             <div class="card">
               <div class="card-header">
                 <h3 class="m-0 section-title">Produk Kami</h3>
