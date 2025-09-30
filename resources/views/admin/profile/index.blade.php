@@ -42,6 +42,21 @@
                 <hr>
                 <strong><i class="fas fa-bullseye mr-1"></i> Misi</strong>
                 <p class="text-muted">{!!$profile->mission!!}</p>
+                <hr>
+                <strong><i class="fab fa-facebook"></i> Facebook</strong>
+                <p class="text-muted">{{$profile->facebook}}</p>
+                <hr>
+                <strong><i class="fab fa-instagram-square"></i> Instagram</strong>
+                <p class="text-muted">{{$profile->instagram}}</p>
+                <hr>
+                <strong><i class="fab fa-youtube"></i> Youtube</strong>
+                <p class="text-muted">{{$profile->youtube}}</p>
+                <hr>
+                <strong><i class="fab fa-facebook"></i> Facebook</strong>
+                <p class="text-muted">{{$profile->facebook}}</p>
+                <hr>
+                <strong><i class="fab fa-facebook"></i> Facebook</strong>
+                <p class="text-muted">{{$profile->facebook}}</p>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">

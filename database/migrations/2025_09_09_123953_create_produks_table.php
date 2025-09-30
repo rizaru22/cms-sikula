@@ -14,11 +14,16 @@ return new class extends Migration
         Schema::create('produks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('image')->nullable();
-            $table->string('price');
-            $table->string('description');
+            $table->deimal('price',12,2)->nullable();
+            $table->text('description')->nullable();
             $table->string('contact_person');
+            $table->string('category')->nullable();  // Kategori produk (makanan, jasa, kerajinan, dll)
+            $table->integer('stock')->nullable();    // Stok barang (jika fisik)
+            $table->string('unit')->nullable();      // Satuan (pcs, box, kg, paket)
+            $table->json('gallery')->nullable();     // Foto tambahan (lebih dari 1 gambar)
+            $table->boolean('is_active')->default(true); // Status aktif/tidak
             $table->timestamps();
         });
     }

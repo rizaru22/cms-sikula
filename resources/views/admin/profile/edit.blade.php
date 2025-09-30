@@ -69,6 +69,31 @@
                     <label for="mission">Misi</label>
                      <x-summernote name="mission" id="mission">{{ old('mission', $profile->mission) }}</x-summernote>
                 </div>
+                <div class="form-group">
+                    <label for="mission">Facebook</label>
+                    <input type="text" name="facebook" id="facebook" class="form-control"
+                        value="{{ old('facebook', $profile->facebook) }}">
+                </div>
+                <div class="form-group">
+                    <label for="mission">Instagram</label>
+                    <input type="text" name="instagram" id="instagram" class="form-control"
+                        value="{{ old('instagram', $profile->instagram) }}">
+                </div>
+                <div class="form-group">
+                    <label for="mission">Thread</label>
+                    <input type="text" name="thread" id="thread" class="form-control"
+                        value="{{ old('thread', $profile->thread) }}">
+                </div>
+                <div class="form-group">
+                    <label for="mission">Twitter</label>
+                    <input type="text" name="twitter" id="twitter" class="form-control"
+                        value="{{ old('twitter', $profile->twitter) }}">
+                </div>
+                <div class="form-group">
+                    <label for="mission">Youtube</label>
+                    <input type="text" name="youtube" id="youtube" class="form-control"
+                        value="{{ old('youtube', $profile->youtube) }}">
+                </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>
                 <a href="{{ route('admin.profile.index') }}" class="btn btn-secondary">Batal</a>
             </form>

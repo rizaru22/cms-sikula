@@ -22,6 +22,9 @@ class ViewServiceProvider extends ServiceProvider
         //
         View::composer('*',function($view){
             $view->with('profile', \App\Models\Profile::first());
+        }); 
+        View::composer('*',function($view){
+            $view->with('links', \App\Models\Link::all());
         });
     }
 }

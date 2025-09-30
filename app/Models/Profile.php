@@ -5,12 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
-{
+{ 
     protected $fillable = [
         'welcome_message',
+        'name',
+        'short_name',
+        'address',
+        'phone',
+        'email',
+        'logo',
         'history',
         'vision',
         'mission',
-        'study_programs', // JSON or text
+        'facebook', 
+        'twitter', 
+        'instagram', 
+        'youtube', 
+        'thread', // JSON or text
     ];
 }

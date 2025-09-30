@@ -48,17 +48,16 @@
           <div class="col-md-4">
             <h6 class="mb-3">Tautan</h6>
             <ul class="list-unstyled small">
-              <li><a href="#">PPDB</a></li>
-              <li><a href="#">Kalender Akademik</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+            @foreach($links as $link)<li><a href="{{$link->url}}">{{$link->name}}</a></li>
+            @endforeach
             </ul>
           </div>
         </div>
         <div
-          class="border-top border-light-subtle mt-4 pt-3 pb-4 d-flex justify-content-between small"
+          class="border-top border-light-subtle mt-4 pt-1 pb-4 d-flex justify-content-between"
         >
-          <span>© 2025  {{config('app.name')}}-{{config('app.version')}}</span>
-          <span>Dibuat dengan Bootstrap 5</span>
+          <span class="small">© 2025  {{config('app.name')}}-{{config('app.version')}}</span>
+          @include('partials.sosialmedia')
         </div>
       </div>
     </footer>

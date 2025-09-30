@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->id();
+            $table->id(); 
             $table->string('name');
             $table->string('short_name');
             $table->string('address');
@@ -23,6 +23,11 @@ return new class extends Migration
             $table->text('history');
             $table->text('vision');
             $table->text('mission');
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('thread')->nullable();
             $table->timestamps();
         });
     }
