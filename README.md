@@ -56,12 +56,9 @@ Dengan CMS ini, sekolah dapat mengelola berita, profil, tautan, hingga konten ha
 
 ## 📝 Penggunaan
 
-    Admin Panel → Kelola berita, profil sekolah, carousel, dan tautan.
-
-    Halaman Publik → Pengunjung dapat melihat daftar berita, profil, dan konten sekolah.
-
-    Pencarian Berita → Cari berita dengan fitur pencarian real-time.
+- Admin Panel → Kelola berita, profil sekolah, carousel, dan tautan.
+- Halaman Publik → Pengunjung dapat melihat daftar berita, profil, dan konten sekolah
+- Pencarian Berita → Cari berita dengan fitur pencarian real-time.
 
 ## 📄 Lisensi
-
-    CMS-Sikula dirilis di bawah lisensi MIT. Silakan gunakan, modifikasi, dan kembangkan sesuai kebutuhan.
+- CMS-Sikula dirilis di bawah lisensi MIT. Silakan gunakan, modifikasi, dan kembangkan sesuai kebutuhan.
