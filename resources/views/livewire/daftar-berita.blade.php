@@ -22,8 +22,8 @@
                                     <div class="h-100">
                                         <div class="card h-100 shadow-sm">
                                             <img src="{{ asset('storage/' . $berita->image) }}" class="card-img-top"
-                                                alt="Gambar Berita">
-
+                                                alt="Gambar Berita" loading="lazy" >
+                                            
                                             <div class="card-body">
                                                 <h5 class="card-title"> <a
                                                         href="{{ route('news.detail', $berita->slug) }}"

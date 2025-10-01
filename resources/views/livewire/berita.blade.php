@@ -8,7 +8,7 @@
                     <h1 class="mb-3 section-title">{{ $news->title }}</h1>
                     <p class="text-muted">{{ $news->published_at ? $news->published_at->format('j F Y') : 'Draft' }}</p>
                     @if ($news->image)
-                        <img src="{{ asset('storage/' . $news->image) }}" alt="Gambar Berita" class="img-fluid mb-3">
+                        <img src="{{ asset('storage/' . $news->image) }}" alt="Gambar Berita" class="img-fluid mb-3" loading="lazy" >
                     @endif
                     <div>{!! $news->content !!}</div>
 

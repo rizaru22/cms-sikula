@@ -172,6 +172,10 @@ footer a:hover {
   opacity: 0.8;
 }
 
+.elegant-img {
+  height: 70vh;
+  object-fit: cover;
+}
 
 @media (max-width: 991.98px) {
   .navbar-logo {
@@ -187,6 +191,9 @@ footer a:hover {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+    .elegant-img {
+    height: 40vh; /* tablet */
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -199,6 +206,10 @@ footer a:hover {
   .navbar-logo {
     height: 28px;
     width: 28px;
+  }
+
+    .elegant-img {
+    height: 30vh; /* smartphone */
   }
 }
 
@@ -219,3 +230,6 @@ footer a:hover {
   background: var(--accent-50);
   color: var(--accent);
 }
+
+
+

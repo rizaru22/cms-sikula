@@ -5,7 +5,8 @@
             @foreach ($carousels as $carousel)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                     <img src="{{ asset('storage/' . $carousel->image) }}" class="d-block w-100 elegant-img"
-                        alt="{{ $profile->short_name }}-{{ $loop->iteration }}" style="height: 70vh; object-fit: cover" />
+                        alt="{{ $profile->short_name }}-{{ $loop->iteration }}" style="height: 70vh; object-fit: cover"
+                        loading="lazy">
                 </div>
             @endforeach
         </div>
@@ -34,10 +35,10 @@
                             <div class="row g-4">
                                 <!-- item berita -->
                                 @foreach ($news as $item)
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-sm-6 col-12">
                                         <article class="card h-100">
                                             <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top"
-                                                alt="{{ $item->title }}" />
+                                                alt="{{ $item->title }}" loading="lazy">
                                             <div class="card-body">
                                                 <small class="text-muted d-block mb-2">
                                                     <i class="bi bi-calendar-event"></i>
@@ -82,7 +83,7 @@
                                 style="background: var(--surface); border-color: var(--ring);">
                                 <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop"
                                     alt="Produk 1" class="rounded me-3"
-                                    style="width: 70px; height: 70px; object-fit: cover;">
+                                    style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1">Seragam Batik</h6>
                                     <p class="text-muted mb-1" style="font-size: 0.9rem;">Rp120.000</p>
@@ -103,7 +104,7 @@
                                 style="background: var(--surface); border-color: var(--ring);">
                                 <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop"
                                     alt="Produk 2" class="rounded me-3"
-                                    style="width: 70px; height: 70px; object-fit: cover;">
+                                    style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1">Kaos Olahraga</h6>
                                     <p class="text-muted mb-1" style="font-size: 0.9rem;">Rp85.000</p>
@@ -182,10 +183,10 @@
                         <div class="card h-100">
                             @if ($item->image)
                                 <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top"
-                                    alt="{{ $item->title }}" />
+                                    alt="{{ $item->title }}" loading="lazy">
                             @else
                                 <img src="{{ asset('images/no-image.png') }}" class="card-img-top"
-                                    alt="{{ $item->title }}" />
+                                    alt="{{ $item->title }}" loading="lazy">
                             @endif
                             <div class="card-body">
                                 <span class="badge badge-accent mb-2"><i class="bi bi-calendar-event"></i>
