@@ -20,7 +20,7 @@
 
     <!-- BERITA (8) + PENGUMUMAN (4) -->
     <section id="beranda" class="py-5">
-        <div class="container-fluid ps-3 pe-3">
+        <div class="container ps-3 pe-3">
             <div class="row g-4 align-items-stretch">
                 <!-- Berita (Grid 8) -->
                 <div class="col-lg-8 col-md-9 col-sm-12">

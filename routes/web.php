@@ -35,3 +35,4 @@ Route::get('/',\App\Livewire\Dashboard::class)->name('home');
 Route::get('/berita/{slug}', \App\Livewire\Berita::class)->name('news.detail');
 Route::get('/berita', \App\Livewire\DaftarBerita::class)->name('news.list');
 Route::get('/prestasi', \App\Livewire\DaftarPrestasi::class)->name('achievement.list');
+

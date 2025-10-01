@@ -1,12 +1,12 @@
 <div>
     {{-- In work, do what you enjoy. --}}
-    <div class="container">
+    <div class="container pt-5 mt-5">
         <div class="row g-4 align-items-stretch pt-4 pb-4 pe-0 ps-0">
             <div class="col-lg-8 col-md-9 col-sm-12"> 
-                <div class="card shadow-sm border-0 mb-4 mr-4 ml">
+                <div class="card shadow-sm border-0 mb-4 mr-4 ml p-4">
                    
                     <h1 class="mb-3 section-title">{{ $news->title }}</h1>
-                    <p class="text-muted">{{ $news->published_at ? $news->published_at->format('d M Y') : 'Draft' }}</p>
+                    <p class="text-muted">{{ $news->published_at ? $news->published_at->format('j F Y') : 'Draft' }}</p>
                     @if ($news->image)
                         <img src="{{ asset('storage/' . $news->image) }}" alt="Gambar Berita" class="img-fluid mb-3">
                     @endif
