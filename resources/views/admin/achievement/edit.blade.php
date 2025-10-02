@@ -34,13 +34,12 @@
                 </div>
                 <div class="form-group">
                     <label for="category">Kategori</label>
-                    <select class="form-control" @error('category') is-invalid @enderror" id="category" name="category"
+                    <select class="form-control" @error('category') is-invalid @enderror" id="category_achievement_id" name="category_achievement_id"
                         required>
                         <option value="">Pilih:</option>
-                        <option value="LKS" {{ $achievement->category == 'LKS' ? 'selected' : '' }}>LKS</option>
-                        <option value="Olah Raga" {{ $achievement->category == 'Olah Raga' ? 'selected' : '' }}>Olah Raga</option>
-                        <option value="Ekstrakurikuler" {{ $achievement->category == 'Ekstrakurikuler' ? 'selected' : '' }}>
-                            Ekstrakurikuler</option>
+                        @foreach ($category_achievements as $category)
+                            <option value="{{ $category->id }}" {{ $achievement->category_achievement_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>       
+                        @endforeach
                     </select>
 
                     @error('category')
@@ -79,8 +78,7 @@
                 <div class="form-group">
                     <label for="published_at">Tanggal Pengumuman</label>
                     <input type="date" class="form-control @error('date') is-invalid @enderror" id="date"
-                        name="date" value="{{ $achievement->date ? $achievement->date->format('Y-m-d') : '' }}"
->
+                        name="date" value="{{ $achievement->date ? $achievement->date->format('Y-m-d') : '' }}">
                     @error('date')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

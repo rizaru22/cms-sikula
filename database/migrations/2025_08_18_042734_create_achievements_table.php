@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->enum('category', ['LKS', 'Olah Raga', 'Ekstrakurikuler']);
+            $table->foreignId('category_achievement_id')->nullable()->constrained('category_achievements')->onDelete('set null');
             $table->text('description');
             $table->date('date');
             $table->string('image')->nullable();

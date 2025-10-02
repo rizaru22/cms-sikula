@@ -32,13 +32,12 @@
                 </div>
                 <div class="form-group">
                     <label for="category">Kategori</label>
-                    <select class="form-control" @error('category') is-invalid @enderror" id="category" name="category"
+                    <select class="form-control" @error('category') is-invalid @enderror" id="category_achievement_id" name="category_achievement_id"
                         required>
                         <option value="">Pilih:</option>
-                        <option value="LKS" {{ old('category') == 'LKS' ? 'selected' : '' }}>LKS</option>
-                        <option value="Olah Raga" {{ old('category') == 'Olah Raga' ? 'selected' : '' }}>Olah Raga</option>
-                        <option value="Ekstrakurikuler" {{ old('category') == 'Ekstrakurikuler' ? 'selected' : '' }}>
-                            Ekstrakurikuler</option>
+                        @foreach ($category_achievements as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
 
                     @error('category')
@@ -69,7 +68,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="published_at">Tanggal Pengumuman</label>
+                    <label for="published_at">Tanggal Publikasi</label>
                     <input type="date" class="form-control @error('date') is-invalid @enderror" id="date"
                         name="date" value="{{ old('date') }}">
                     @error('date')

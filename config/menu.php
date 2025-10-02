@@ -17,9 +17,21 @@
                     'permission'=>null
                 ],
                 [
+                    'label'=>'Kategori Prestasi',
+                    'icon'=>'fas fa-tags',
+                    'route'=>'admin.category-achievement.index',
+                    'permission'=>null
+                ],
+                [
                     'label'=>'Prestasi',
                     'icon'=>'fas fa-award',
                     'route'=>'admin.achievement.index',
+                    'permission'=>null
+                ],
+                [
+                    'label'=>'Kompetensi Keahlian',
+                    'icon'=>'fas fa-book',
+                    'route'=>'admin.kompetensi.index',
                     'permission'=>null
                 ],
                 [

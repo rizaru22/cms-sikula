@@ -16,14 +16,14 @@
                     <td><a href="{{route('admin.news.show',$item->id)}}">{{ $item->title }}</a></td>
                     <td>{{ $item->published_at->format('d M Y') }}</td>
                     <td>
-                    
-                         <a href="{{ route('admin.news.edit', $item->id) }}" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                    <div class="btn-group">                 
+                         <a href="{{ route('admin.news.edit', $item->id) }}" class="btn btn-sm btn-warning btn-flat"><i class="fas fa-pencil-alt"></i></a>
                         <form action="{{ route('admin.news.destroy', $item->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus berita ini?')"><i class="fas fa-trash"></i></button>
+                            <button type="submit" class="btn btn-sm btn-danger btn-flat" onclick="return confirm('Yakin ingin menghapus berita ini?')"><i class="fas fa-trash"></i></button>
                         </form>
-                     
+                     </div>
                      
                     </td>
                 </tr>

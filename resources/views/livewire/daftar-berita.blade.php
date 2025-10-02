@@ -14,7 +14,6 @@
                                 <input type="text" class="form-control" placeholder="Cari berita..."
                                     wire:model.live.debounce.500ms="search" id="search" name="search">
                             </div>
-                            
                         </div>
                         <div class="row row-cols-1 row-cols-md-3 g-4">
                             @forelse ($daftar_berita as $berita)

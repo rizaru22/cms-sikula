@@ -10,11 +10,12 @@
     </div>
     <div class="card-body">
         <x-datatable :columns="['No','Judul','Kategori', 'Tanggal', 'Aksi']" id="newsTable">
+        
             @foreach($achievements as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td><a href="{{route('admin.achievement.show',$item->id)}}">{{ $item->title }}</a></td>
-                    <td>{{ $item->category }}</td>
+                    <td>{{ $item->category_achievement->name }}</td>
                     <td>{{ $item->date->format('d M Y') }}</td>
                     <td>
                     
@@ -31,5 +32,6 @@
             @endforeach
         </x-datatable>
     </div>
+</div>
 @endsection
 

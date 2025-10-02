@@ -1,3 +1,6 @@
+@push('head')
+    <link rel="preload" as="image" href="{{ asset('storage/' . $carousels->first()->image) }}">
+@endpush
 <div>
     <!-- Carousel -->
     <div id="carouselElegant" class="carousel slide carousel-fade mt-3 pt-5" data-bs-ride="carousel">
@@ -5,8 +8,7 @@
             @foreach ($carousels as $carousel)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                     <img src="{{ asset('storage/' . $carousel->image) }}" class="d-block w-100 elegant-img"
-                        alt="{{ $profile->short_name }}-{{ $loop->iteration }}" style="height: 70vh; object-fit: cover"
-                        loading="lazy">
+                        alt="{{ $profile->short_name }}-{{ $loop->iteration }}" style="height: 70vh; object-fit: cover">
                 </div>
             @endforeach
         </div>
@@ -192,7 +194,8 @@
                                 <span class="badge badge-accent mb-2"><i class="bi bi-calendar-event"></i>
                                     {{ $item->date->format('d F Y') }}</span>
                                 <span class="badge badge-accent mb-2"><i class="bi bi-award"></i>
-                                    {{ $item->category }}</span>
+                                   
+                                    {{ $item->category_achievement->name }}</span>
                                 <div class="d-flex align-items-center mb-2">
                                     <i class="bi bi-trophy fs-3 me-2 text-warning"></i>
                                     <h5 class="m-0">{{ $item->title }}</h5>

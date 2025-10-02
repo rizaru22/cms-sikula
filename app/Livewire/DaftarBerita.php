@@ -14,9 +14,6 @@ class DaftarBerita extends Component
     #[Url]
     public string $search = '';
 
-
-
-
     public function updatedSearch()
     {
         $this->resetPage();

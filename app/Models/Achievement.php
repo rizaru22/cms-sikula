@@ -9,7 +9,7 @@ class Achievement extends Model
     protected $fillable = [
         'title',
         'slug',
-        'category', // LKS, Olah Raga, Ekstrakurikuler
+        'category_achievement_id', // LKS, Olah Raga, Ekstrakurikuler
         'description',
         'date',
         'image',
@@ -18,4 +18,10 @@ class Achievement extends Model
     protected $casts = [
         'date' => 'date',
     ];
+
+    
+        public function category_achievement()
+        {
+            return $this->belongsTo(CategoryAchievement::class, 'category_achievement_id');
+        }
 }

@@ -26,14 +26,15 @@ class AchievementController extends Controller
             'Prestasi' => route('admin.achievement.index'),
             'Tambah Prestasi' => route('admin.achievement.create'),
         ];
-        return view('admin.achievement.create', compact('breadcrumbs'));
+        $category_achievements = \App\Models\CategoryAchievement::all();
+        return view('admin.achievement.create', compact('breadcrumbs','category_achievements'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required',
-            'category' => 'required',
+            'category_achievement_id' => 'required',
             'description' => 'required',
             'date' => 'required|date',
             'image' => 'required|image|max:2048',
@@ -48,11 +49,11 @@ class AchievementController extends Controller
         if ($count > 0) {
             $slug .= '-' . ($count + 1);
         }
-
+// dd($request->category_achievement_id);
         Achievement::create([
             'title' => $request->title,
             'slug' => $slug,
-            'category' => $request->category,
+            'category_achievement_id' => $request->category_achievement_id,
             'description' => $request->description,
             'date' => $request->date,
             'image' => $imagePath,
@@ -68,18 +69,27 @@ class AchievementController extends Controller
             'Berita' => route('admin.news.index'),
             'Edit Berita' => route('admin.news.edit',$achievement->id),
         ];
+        $category_achievements = \App\Models\CategoryAchievement::all();
 
-        return view('admin.achievement.edit', compact('achievement','breadcrumbs'));
+        return view('admin.achievement.edit', compact('achievement','breadcrumbs','category_achievements'));
     }
 
     public function update(Request $request, Achievement $achievement)
     {
-           $request->validate([
+         $request->validate([
             'title' => 'required',
-            'category' => 'required',
+            'category_achievement_id' => 'required',
             'description' => 'required',
             'date' => 'required|date',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'image|max:2048',
+        ],[
+            'category_achievement_id.required' => 'Kategori prestasi harus diisi',
+            'image.image' => 'File harus berupa gambar',
+            'image.max' => 'Ukuran gambar maksimal 2MB',
+            'date.date' => 'Format tanggal tidak valid',
+            'date.required' => 'Tanggal harus diisi',
+            'description.required' => 'Deskripsi harus diisi',
+            'title.required' => 'Judul harus diisi',
         ]);
 
          if ($request->hasFile('image')) {
@@ -91,9 +101,8 @@ class AchievementController extends Controller
             $achievement->image = $imagePath;
         }
         $achievement->title=$request->title;
-        $achievement->category=$request->category;
+        $achievement->category_achievement_id=$request->category_achievement_id;
         $achievement->description=$request->description;
-        $achievement->image=$imagePath;
         $achievement->date=$request->date;
         $achievement->save();
         Artisan::call('app:generate-sitemap');

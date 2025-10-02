@@ -26,6 +26,8 @@ Route::prefix('admin')->group(function() {
     Route::resource('users', UsersController::class)->names('admin.users');
     Route::post('/summernote/upload', [SummernoteController::class, 'upload'])->name('admin.summernote.upload');
     Route::resource('carousel', \App\Http\Controllers\CarouselController::class)->names('admin.carousel');
+    Route::resource('category-achievement', \App\Http\Controllers\CategoryAchievementController::class)->names('admin.category-achievement')->except(['show']);
+    Route::resource('kompetensi', \App\Http\Controllers\KompetensiController::class)->names('admin.kompetensi');
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
