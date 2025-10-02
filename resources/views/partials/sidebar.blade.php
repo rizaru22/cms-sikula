@@ -1,4 +1,4 @@
-<!-- Main Sidebar Container -->
+  <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-teal elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link bg-teal">
@@ -20,27 +20,28 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-           @foreach(config('menu') as $item)
+           
+         @foreach(config('menu') as $item)
             @if(isset($item['children']))
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-                        <i class="nav-icon {{ $item['icon'] }}"></i>
-                        <p>
-                            {{ $item['label'] }}
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-          <ul class="nav nav-treeview">
-            @foreach($item['children'] as $child)
-              <li class="nav-item">
-                <a href="{{ route($child['route']) }}" 
-                   class="nav-link {{ request()->routeIs($child['route']) ? 'active' : '' }}">
-                  <i class="nav-icon {{ $child['icon'] }}"></i>
-                  <p>{{ $child['label'] }}</p>
+                <li class="nav-item has-treeview {{request()->routeIs(collect($item['children'])->pluck('route')->toArray())?'menu-open':''}}">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon {{ $item['icon'] }}"></i>
+                    <p>
+                        {{ $item['label'] }}
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
                 </a>
-              </li>
-            @endforeach
-          </ul>
+                <ul class="nav nav-treeview">
+                    @foreach($item['children'] as $child)
+                        <li class="nav-item">
+                            <a href="{{ route($child['route']) }}" 
+                               class="nav-link {{ request()->routeIs($child['route']) ? 'active' : '' }}">
+                                <i class="nav-icon {{ $child['icon'] }}"></i>
+                                <p>{{ $child['label'] }}</p>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
                 </li>
             @else
              {{-- Menu Biasa --}}
@@ -61,4 +62,3 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
