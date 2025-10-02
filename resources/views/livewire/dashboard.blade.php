@@ -44,7 +44,7 @@
                                             <div class="card-body">
                                                 <small class="text-muted d-block mb-2">
                                                     <i class="bi bi-calendar-event"></i>
-                                                    {{ $item->published_at->format('d M Y') }}
+                                                    {{ tglIndo($item->published_at) }}
                                                 </small>
                                                 <h5 class="card-title"> <a
                                                         href="{{ route('news.detail', $item->slug) }}"
@@ -192,7 +192,7 @@
                             @endif
                             <div class="card-body">
                                 <span class="badge badge-accent mb-2"><i class="bi bi-calendar-event"></i>
-                                    {{ $item->date->format('d F Y') }}</span>
+                                    {{ tglIndo($item->date) }}</span>
                                 <span class="badge badge-accent mb-2"><i class="bi bi-award"></i>
                                    
                                     {{ $item->category_achievement->name }}</span>

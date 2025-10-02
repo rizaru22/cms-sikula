@@ -29,7 +29,7 @@
                                                         class="link-accent-title">{{ \Illuminate\Support\Str::limit(strip_tags($berita->title), 70, '...') }}</a>
                                                 </h5>
                                                 <small class="text-muted ">Diterbitkan pada
-                                                    {{ $berita->published_at->format('d F Y') }}
+                                                    {{ tglIndo($berita->published_at) }}
                                                 </small>
                                                 <p class="card-text mt-3">
                                                     {!! \Illuminate\Support\Str::limit(strip_tags($berita->content), 100, '...') !!}

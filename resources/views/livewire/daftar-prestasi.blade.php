@@ -50,7 +50,7 @@
                                             <div class="card-body">
                                                 <span class="badge badge-accent mb-2"><i
                                                         class="bi bi-calendar-event"></i>
-                                                    {{ $prestasi->date->format('d F Y') }}</span>
+                                                    {{ tglIndo($prestasi->date) }}</span>
                                                 <span class="badge badge-accent mb-2"><i class="bi bi-award"></i>
 
                                                     {{ $prestasi->category_achievement->name }}</span>

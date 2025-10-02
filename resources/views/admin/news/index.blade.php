@@ -14,7 +14,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td><a href="{{route('admin.news.show',$item->id)}}">{{ $item->title }}</a></td>
-                    <td>{{ $item->published_at->format('d M Y') }}</td>
+                    <td>{{ tglIndo($item->published_at) }}</td>
                     <td>
                     <div class="btn-group">                 
                          <a href="{{ route('admin.news.edit', $item->id) }}" class="btn btn-sm btn-warning btn-flat"><i class="fas fa-pencil-alt"></i></a>
