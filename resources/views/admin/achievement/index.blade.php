@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card-body">
-            <x-datatable :columns="['No', 'Judul', 'Kategori', 'Tanggal', 'Aksi']" id="newsTable">
+            <x-datatable :columns="['No', 'Judul', 'Kategori', 'Tanggal', 'Aksi']" id="achievementsTable">
 
                 @foreach ($achievements as $item)
                     <tr>
