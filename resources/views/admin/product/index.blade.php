@@ -14,7 +14,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td><a href="{{route('admin.product.show',$item->id)}}">{{ $item->name }}</a></td>
-                    <td>{{ $item->price}}</td>
+                    <td> @currency($item->price)</td>
                     <td>{{ $item->contact_person}}</td>
                     <td>
                     <div class="btn-group">                 

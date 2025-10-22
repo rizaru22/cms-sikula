@@ -32,8 +32,8 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        Storage::disk('public')->put('test.txt', 'halo dunia');
-
+        // Storage::disk('public')->put('test.txt', 'halo dunia');
+        // dd('tes');
         $request->validate([
             'name' => 'required|string|max:255',
             'short_name' => 'required|string|max:100',
@@ -55,11 +55,13 @@ class ProfileController extends Controller
             'logo.mimes' => 'Format logo harus jpeg, png, jpg, gif, atau svg.',
             'logo.max' => 'Ukuran logo maksimal 2MB.',
         ]);
+
+        // dd('ok');
         if ($request->hasFile('logo')) {
             // dd($request->file('logo'));
             $logoPath = $request->file('logo')->store('logos','public');
         }
-        
+
         $profile = Profile::first();
         $profile->name=$request->name;
         $profile->short_name=$request->short_name;

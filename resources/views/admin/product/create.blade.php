@@ -43,7 +43,7 @@
                         @enderror
                     </div>
                 </div>
-
+         
                 <div class="form-group">
                     <label for="price">Harga</label>
                     <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
@@ -77,7 +77,7 @@
 
                 <div class="form-group">
                     <label for="image">Unit</label>
-                    <select class="form-control @error('unit_id') is-invalid @enderror" id="unit_id" name="unit_id"
+                    <select class="form-control @error('unit_id') is-invalid @enderror" id="unit" name="unit"
                         required>
                         <option value="">Pilih Unit</option>
                         <option value="pcs">pcs</option>
@@ -113,6 +113,7 @@
     @endsection
 
     @section('scripts')
+    <script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
         <script>
             const input = document.getElementById('price');
 
@@ -122,6 +123,11 @@
                     value = new Intl.NumberFormat('id-ID').format(value);
                 }
                 this.value = value ? "Rp " + value : "";
+            });
+
+
+            $(function () {
+            bsCustomFileInput.init();
             });
         </script>
     @endsection

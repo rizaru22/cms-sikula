@@ -3,40 +3,34 @@
 
     <!-- Halaman statis --> 
     <url>
-        <loc>https://smws.dev</loc>
+        <loc>https://cms-sikula.ddev.site</loc>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://smws.dev/profil-sekolah</loc>
+        <loc>https://cms-sikula.ddev.site/profil-sekolah</loc>
         <priority>0.8</priority>
     </url>
 
     <!-- Produk Sekolah -->
     
     <!-- Berita Sekolah -->
+        <url>
+        <loc>https://cms-sikula.ddev.site/berita/fgfgd</loc>
+        <lastmod>2025-10-22T12:55:18+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+        <url>
+        <loc>https://cms-sikula.ddev.site/berita/gachiakuta</loc>
+        <lastmod>2025-10-22T12:41:19+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
     
      <!-- Prestasi Sekolah -->
         <url>
-        <loc>https://smws.dev/prestasi/juara-ii-lomba-kamtibnas</loc>
-        <lastmod>2025-10-02T21:30:10+07:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-        <url>
-        <loc>https://smws.dev/prestasi/sdfas</loc>
-        <lastmod>2025-10-02T21:28:48+07:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-        <url>
-        <loc>https://smws.dev/prestasi/asdfa</loc>
-        <lastmod>2025-10-02T20:18:50+07:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-        <url>
-        <loc>https://smws.dev/prestasi/juara-i-lks-tingkat-provinsi-aceh</loc>
-        <lastmod>2025-10-02T20:10:50+07:00</lastmod>
+        <loc>https://cms-sikula.ddev.site/prestasi/juara-1-lks-tingkat-provinsi</loc>
+        <lastmod>2025-10-22T13:21:15+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
