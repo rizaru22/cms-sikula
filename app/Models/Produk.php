@@ -22,4 +22,6 @@ class Produk extends Model
         'gallery',
         'is_active',
     ];
+    protected $casts = ['gallery' => 'array'];
+
 }

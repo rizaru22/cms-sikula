@@ -83,4 +83,39 @@ class ProductController extends Controller
         $product->save();
         return redirect()->route('admin.product.index')->with('success', 'Produk berhasil ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        $product = \App\Models\Produk::findOrFail($id);
+         $breadcrumbs=[
+            'Konten' => '#',
+            'Produk' => route('admin.product.index'),
+            'Edit Produk' => route('admin.product.edit', $id),
+        ];
+        return view('admin.product.edit', compact('product','breadcrumbs'));    
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    public function destroy(Produk $product)
+    {
+        //
+        if ($product->image) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($product->image);
+        }
+        // Hapus file gallery dari storage
+        if ($product->gallery) {
+            $galleryImages = json_decode($product->gallery, true);
+            foreach ($galleryImages as $imagePath) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($imagePath);
+            }
+        }
+        $product->delete();
+        return redirect()->route('admin.product.index')->with('success', 'Produk berhasil dihapus.');
+
+    }
+
 }
