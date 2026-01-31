@@ -24,4 +24,4 @@ class Berita extends Component
                     'image'=> asset('storage/'.$news->image),
                 ]);
     }
-}
+} 

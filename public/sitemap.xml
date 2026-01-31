@@ -3,11 +3,11 @@
 
     <!-- Halaman statis --> 
     <url>
-        <loc>https://cms-sikula.ddev.site</loc>
+        <loc>http://127.0.0.1:8000</loc>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://cms-sikula.ddev.site/profil-sekolah</loc>
+        <loc>http://127.0.0.1:8000/profil-sekolah</loc>
         <priority>0.8</priority>
     </url>
 
@@ -15,25 +15,13 @@
     
     <!-- Berita Sekolah -->
         <url>
-        <loc>https://cms-sikula.ddev.site/berita/fgfgd</loc>
-        <lastmod>2025-10-22T12:55:18+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-        <url>
-        <loc>https://cms-sikula.ddev.site/berita/gachiakuta</loc>
-        <lastmod>2025-10-22T12:41:19+00:00</lastmod>
+        <loc>http://127.0.0.1:8000/berita/banjir-bandang</loc>
+        <lastmod>2026-01-27T13:28:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     
      <!-- Prestasi Sekolah -->
-        <url>
-        <loc>https://cms-sikula.ddev.site/prestasi/juara-1-lks-tingkat-provinsi</loc>
-        <lastmod>2025-10-22T13:21:15+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
          <!-- Kompetensi Keahlian -->
          <!-- Agenda -->
          <!-- Agenda -->

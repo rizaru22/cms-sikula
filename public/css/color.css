@@ -1,0 +1,43 @@
+:root {
+  /* Base */
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --text: #263238;
+  --muted: #6b7a85;
+
+  /* Primary */
+  --primary: #2e7d32;
+  --primary-600: #2a6f2e;
+  --primary-50: #e8f3ea;
+
+  /* Accent */
+  --accent: #fbc02d;
+  --accent-600: #f9a825;
+  --accent-50: #fff7db;
+
+  /* Border & ring */
+  --ring: #dce5dd;
+
+  /* Footer */
+  --footer-bg: #1b3b22;
+  --footer-text: #e7eee9;
+
+  /* Badge accent */
+  --badge-accent-text: #7a5b00;
+  --badge-accent-border: #f0e3a5;
+
+  /* Button */
+  --btn-text-light: #ffffff;
+
+  /* Shadow */
+  --shadow-light: rgba(0, 0, 0, 0.08);
+
+  /* Carousel */
+  --carousel-bg: rgba(30, 60, 35, 0.35);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+}
