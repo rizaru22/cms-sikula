@@ -5,9 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('storage/logos/favicon.ico') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('storage/logos/favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/logos/favicon.ico') }}">
+    
+    @php
+    $faviconPath = storage_path('app/public/logos/favicon.png');
+    $faviconUrl = asset('storage/logos/favicon.png');
+    $faviconVersion = file_exists($faviconPath) ? '?v=' . filemtime($faviconPath) : '';
+@endphp
+
+<link rel="icon" type="image/png" href="{{ $faviconUrl . $faviconVersion }}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/logos/favicon.ico') }}?v={{ filemtime(storage_path('app/public/logos/favicon.ico')) }}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

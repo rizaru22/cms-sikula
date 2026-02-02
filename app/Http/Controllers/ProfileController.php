@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 
 class ProfileController extends Controller
@@ -74,7 +75,7 @@ class ProfileController extends Controller
             }
             
             $profile->logo=$logoPath;
-            $this->generateFavicon($logoPath,32);
+            
         }
         
         $profile->welcome_message=$request->welcome_message;
@@ -89,19 +90,61 @@ class ProfileController extends Controller
 
         $profile->save();
         
+        if ($request->hasFile('logo')) {
+    try {
+        $this->generateFavicon($profile->logo,32);
+    } catch (\Throwable $e) {
+        Log::error($e->getMessage());
+    }
+}
+
         return redirect()->route('admin.profile.index')->with('success', 'Profil berhasil diperbarui');
     }
 
-    public function generateFavicon($path,$size)
+
+
+protected function generateFavicon(string $logoPath, int $size = 32): void
 {
-    // dd(public_path($path), file_exists(public_path($path)));
+    try {
+        $disk = Storage::disk('public'); // tambahkan ini
+        // pastikan file ada
+        if (!Storage::disk('public')->exists($logoPath)) {
+            Log::warning("Favicon skipped: file not found ({$logoPath})");
+            return;
+        }
 
-     $manager = new ImageManager(new Driver());
+         // ambil full path real (symlink-safe)
+        $fullPath = $disk->path($logoPath);
 
-    $img = $manager->read(storage_path('app/public/'.$path))
-                   ->resize($size, $size)
-                   ->encodeByExtension('png');
-    Storage::disk('public')->put('logos/favicon.ico', $img);
+        // validasi mime (shared hosting friendly)
+        $mime = mime_content_type($fullPath);
+        if (!str_starts_with($mime, 'image/')) {
+            Log::warning("Favicon skipped: not an image ({$mime})");
+            return;
+        }
 
+        // pakai GD secara eksplisit
+        $manager = new ImageManager(new Driver());
+
+        $image = $manager->read($fullPath)
+            ->resize($size, $size, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+
+       // pastikan folder tujuan ada
+        $folder = dirname($logoPath);
+        if (!$disk->exists($folder)) {
+            $disk->makeDirectory($folder);
+        }
+
+        // simpan favicon di folder yang sama
+        $faviconPath = $folder.'/favicon.png';
+        $image->save($disk->path($faviconPath));
+
+    } catch (\Throwable $e) {
+        // JANGAN pernah lempar ulang error di sini
+        Log::error('generateFavicon failed: '.$e->getMessage());
+    }
 }
 }
