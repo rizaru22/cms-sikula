@@ -14,7 +14,7 @@
 
 <link rel="icon" type="image/png" href="{{ $faviconUrl . $faviconVersion }}">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/logos/favicon.ico') }}?v={{ filemtime(storage_path('app/public/logos/favicon.ico')) }}">
+    <link rel="apple-touch-icon" sizes="180x180" type="image/png" href="{{ $faviconUrl . $faviconVersion }}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
