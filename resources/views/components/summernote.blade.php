@@ -9,44 +9,53 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.summernote').summernote({
-                height: 250, // Set the height of the editor
-                placeholder: 'Tulis konten disini...',
-                toolbar: [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough', 'superscript', 'subscript']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
-                ],
-                callbacks: {
-                    onImageUpload: function(files) {
-                        let data = new FormData();
-                        data.append('image', files[0]);
-                        data.append('_token', '{{ csrf_token() }}');
-                        $.ajax({
-                            url: '{{ route('admin.summernote.upload') }}',
-                            method: 'POST',
-                            data: data,
-                            contentType: false,
-                            processData: false,
-                            success: function(url) {
-                                $('.summernote').summernote('insertImage', url);
-                            },
-                            error: function(xhr, status, err) {
-                                alert('Gagal mengunggah gambar');
-                            }
-                        });
-                    }
-                }
-                
+$(document).ready(function() {
+    $('.summernote').summernote({
+        height: 250,
+        placeholder: 'Tulis konten disini...',
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ],
+        callbacks: {
+            onPaste: function (e) {
+                e.preventDefault();
 
-            });
-        });
-    </script>
+                let clipboardData = (e.originalEvent || e).clipboardData;
+                let text = clipboardData.getData('text/plain');
+
+                document.execCommand('insertText', false, text);
+            },
+
+            onImageUpload: function(files) {
+                let data = new FormData();
+                data.append('image', files[0]);
+                data.append('_token', '{{ csrf_token() }}');
+
+                $.ajax({
+                    url: '{{ route('admin.summernote.upload') }}',
+                    method: 'POST',
+                    data: data,
+                    contentType: false,
+                    processData: false,
+                    success: function(url) {
+                        $('.summernote').summernote('insertImage', url);
+                    },
+                    error: function() {
+                        alert('Gagal mengunggah gambar');
+                    }
+                });
+            }
+        }
+    });
+});
+</script>
+
 @endpush
 <textarea name="{{ $name }}" id="{{$name}}" class="summernote form-control">{{ $slot }}</textarea>

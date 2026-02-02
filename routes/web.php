@@ -37,6 +37,7 @@ Route::get('/berita/{slug}', \App\Livewire\Berita::class)->name('news.detail');
 Route::get('/berita', \App\Livewire\DaftarBerita::class)->name('news.list');
 Route::get('/prestasi', \App\Livewire\DaftarPrestasi::class)->name('achievement.list');
 Route::get('/produk/{slug}',\App\Livewire\Produk::class)->name('product.detail');
-Route::get('/produk', \App\Livewire\DaftarProduk::class)->name('product.list');
-Route::get('/galeri', \App\Livewire\DaftarGaleri::class)->name('gallery.list');
+Route::get('/profil-sekolah', \App\Livewire\Profile::class)->name('profile.school');
+// Route::get('/produk', \App\Livewire\DaftarProduk::class)->name('product.list');
+// Route::get('/galeri', \App\Livewire\DaftarGaleri::class)->name('gallery.list');
 

@@ -76,7 +76,7 @@
                     <!-- Product -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="m-0 section-title">Product</h3>
+                            <h3 class="m-0 section-title">Produk</h3>
                         </div>
                         <div class="card-body d-grid gap-3">
 

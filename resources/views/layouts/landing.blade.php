@@ -20,6 +20,10 @@
       rel="stylesheet"
     />
    <link rel="stylesheet" href="{{ asset('css/landing.css') }}" />
+   
+   @if(file_exists(public_path('css/theme.css')))
+    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+  @endif
   @stack('head')
    @livewireStyles
   </head>
@@ -36,7 +40,7 @@
         <div class="row g-4">
           <div class="col-md-4">
             <h5 class="mb-3">{{$profile->name}}</h5>
-            <p class="mb-0">{{$profile->vision}}</p>
+            <p class="mb-0">{!! $profile->vision !!}</p>
           </div>
           <div class="col-md-4">
             <h6 class="mb-3">Kontak</h6>

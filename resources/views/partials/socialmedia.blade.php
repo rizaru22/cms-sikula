@@ -7,7 +7,7 @@
         'youtube' => 'bi-youtube',
     ];
 @endphp
-<div class="ms-auto">
+<div class="ms-auto footer-social">
 @foreach ($socials as $field => $icon)
     @if (!empty($profile->$field))
         <a href="{{ $profile->$field }}" target="_blank" rel="noopener noreferrer" class="me-0">

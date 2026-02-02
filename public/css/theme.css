@@ -1,0 +1,92 @@
+:root {
+  /* Base */
+  --bg: #f7faf7;
+  --surface: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7a85;
+
+  /* Primary (Logo Green #60DE43) */
+  /* Primary */
+  --primary: #2e7d32;
+  --primary-600: #2a6f2e;
+  --primary-50: #e8f3ea;
+
+  /* Accent (Logo Yellow #FFEB00) */
+  --accent: #f5db1a;         /* lebih elegan dari kuning murni */
+  --accent-600: #e0c600;
+  --accent-50: #fff9cc;
+
+  /* Border & ring */
+  --ring: #d8e9da;
+
+  /* Footer */
+--footer-bg: #162a1c; /* hampir hitam, masih hijau */  /* hijau gelap dari primary */
+  --footer-text: #eef6f0;
+
+  /* Badge accent */
+  --badge-accent-text: #6b5a00;
+  --badge-accent-border: #f0e3a5;
+
+  /* Button */
+  --btn-text-light: #ffffff;
+
+  /* Shadow */
+  --shadow-light: rgba(0, 0, 0, 0.08);
+
+  /* Carousel overlay */
+  --carousel-bg: rgba(30, 90, 40, 0.4);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.navbar {
+  background: #162a1c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: none; /* hilangkan kesan berat */
+}
+
+
+.navbar-brand img {
+  background: #ffffff;
+  padding: 2px;              /* jangan terlalu tipis */
+  border-radius: 8px;        /* lebih kecil = lebih elegan */
+}
+
+.navbar .nav-link {
+  position: relative;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar .dropdown-toggle::after {
+  display: none !important;
+}
+
+.navbar .dropdown-toggle:hover {
+  color: var(--accent) !important;
+}
+
+
+.card {
+  border-radius: 10px;
+}
+
+.card {
+  box-shadow: var(--shadow-sm);
+}
