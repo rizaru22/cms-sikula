@@ -4,9 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{$profile->short_name}} || {{$title??''}}</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('storage/logos/favicon.ico') }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('storage/logos/favicon.ico') }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/logos/favicon.ico') }}">
+  @php
+    $faviconPath = storage_path('app/public/logos/favicon.png');
+    $faviconUrl = asset('storage/logos/favicon.png');
+    $faviconVersion = file_exists($faviconPath) ? '?v=' . filemtime($faviconPath) : '';
+@endphp
+
+<link rel="icon" type="image/png" href="{{ $faviconUrl . $faviconVersion }}">
+
+    <link rel="apple-touch-icon" sizes="180x180" type="image/png" href="{{ $faviconUrl . $faviconVersion }}">
 
     @include('partials.meta')
         <!-- Bootstrap 5.3 CDN -->
