@@ -37,7 +37,7 @@
                     <label for="image">Logo Kompetensi Keahlian</label>
                     @if($kompetensi->logo)
                         <div class="mb-2">
-                            <img src="{{ asset($kompetensi->logo) }}" alt="Logo" width="100">
+                            <img src="{{ asset('storage/'.$kompetensi->logo) }}" alt="Logo" width="100">
                         </div>
                     @endif
                     <input type="file" class="form-control-file @error('logo') is-invalid @enderror" id="image"

@@ -7,15 +7,15 @@ use Illuminate\Support\Str;
 
 class Profile extends Component
 {
-   public function render()
-{
-    return view('livewire.profile')
+   public function render(){
+    $kompetensi_keahlians=\App\Models\KompetensiKeahlian::all();
+    return view('livewire.profile',compact('kompetensi_keahlians'))
         ->layout('layouts.landing', [
             'title' => 'Profil Sekolah',
             'description' => Str::limit(
                 strip_tags(
                     $this->profile->welcome_message ?? 
-                    'Profil SMK Negeri 1 Darul Aman'
+                    'Profil SMK Negeri 1 Nasional'
                 ),
                 150,
                 '...'

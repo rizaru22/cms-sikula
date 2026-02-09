@@ -61,25 +61,24 @@
                     <div class="card-header">
                         <h3 class="m-0 section-title">Kompetensi Keahlian</h3>
                     </div>
-                    <div class="card-body d-grid gap-2">
-                        <div class="p-2 rounded border" style="background: var(--surface); border-color: var(--ring);">
-                            Teknik Komputer dan Jaringan
-                        </div>
-                        <div class="p-2 rounded border" style="background: var(--surface); border-color: var(--ring);">
-                            Asisten Keperawatan
-                        </div>
-                        <div class="p-2 rounded border" style="background: var(--surface); border-color: var(--ring);">
-                            Teknik Sepeda Motor
-                        </div>
-                        <div class="p-2 rounded border" style="background: var(--surface); border-color: var(--ring);">
-                            Teknik Pendingin dan Tata Udara
-                        </div>
-                        <div class="p-2 rounded border" style="background: var(--surface); border-color: var(--ring);">
-                            Farmasi Klinis dan Komunitas
-                        </div>
-                    </div>
+                     <div class="card-body d-grid gap-3">
+                    @foreach($kompetensi_keahlians as $kompetensi)
+                       <!-- Kompetensi keahlian -->
+                            <div class="d-flex align-items-center border rounded p-2"
+                                style="background: var(--surface); border-color: var(--ring);">
+                                <img src="{{ asset('storage/'.$kompetensi->logo) }}"
+                                    alt="{{ $kompetensi->name }}" class="rounded me-3"
+                                    style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
+                                <div class="flex-grow-1">
+                                    <a href="{{ route('kompetensi.detail', $kompetensi->slug) }}"
+                                        class="h6 mb-1 d-block text-decoration-none text-truncate">
+                                        {{ $kompetensi->name }}
+                                    </a>
+                                </div>
+                            </div>
+                    @endforeach
                 </div>
-
+                </div>
                 <!-- Info Sekolah -->
                 <div class="card">
                     <div class="card-header">
@@ -91,8 +90,8 @@
                             {{ $profile->name }}
                         </p>
                         <p class="mb-0">
-                            <strong>Status</strong><br>
-                            Sekolah Menengah Kejuruan Negeri
+                            <strong>Logo</strong><br>
+                            <img src="{{ asset($profile->logo) }}" alt="Logo Sekolah" class="img-fluid" style="max-height: 100px;">
                         </p>
                     </div>
                 </div>

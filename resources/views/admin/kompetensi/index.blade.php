@@ -16,7 +16,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td><a href="{{ route('admin.kompetensi.show', $item->id) }}">{{ $item->name }}</a></td>
-                        <td><img src="{{ asset($item->logo) }}" alt="Logo" width="50"></td>
+                        <td><img src="{{ asset('storage/'.$item->logo) }}" alt="Logo" width="50"></td>
                        
                         <td>
                             <div class="btn-group">

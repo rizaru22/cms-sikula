@@ -42,8 +42,8 @@ class KompetensiController extends Controller
         $kompetensi->description = $request->input('description');
 
         if ($request->hasFile('logo')) {
-            $imagePath = $request->file('logo')->store('uploads/kompetensi', 'public');
-            $kompetensi->logo = 'storage/' . $imagePath;
+            $imagePath = $request->file('logo')->store('kompetensi', 'public');
+            $kompetensi->logo = $imagePath;
         }
 
         $kompetensi->save();
@@ -87,8 +87,8 @@ class KompetensiController extends Controller
         $kompetensi->description = $request->input('description');
 
         if ($request->hasFile('logo')) {
-            $imagePath = $request->file('logo')->store('uploads/kompetensi', 'public');
-            $kompetensi->logo = 'storage/' . $imagePath;
+            $imagePath = $request->file('logo')->store('kompetensi', 'public');
+            $kompetensi->logo = $imagePath;
         }
 
         $kompetensi->save();
