@@ -28,6 +28,12 @@
     </url>
     
      <!-- Prestasi Sekolah -->
+        <url>
+        <loc>http://127.0.0.1:8000/prestasi/juara-1-lks-tingkat-provinsi</loc>
+        <lastmod>2026-02-09T13:51:47+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
          <!-- Kompetensi Keahlian -->
         <url>
         <loc>http://127.0.0.1:8000/kompetensi_keahlians/rekayasa-perangkat-lunak</loc>

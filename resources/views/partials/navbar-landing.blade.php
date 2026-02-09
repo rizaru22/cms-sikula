@@ -1,7 +1,7 @@
   <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm py-2 fixed-top shadow-lg"  data-bs-theme="dark">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="route('home')">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home') }}">
           <img
             src="{{asset('storage/'.$profile->logo)}}"
             alt="Logo SMKN 1 Karang Baru"
@@ -32,7 +32,7 @@
             </li>
               
             <li class="nav-item">
-              <a class="nav-link" href="{{route('news.list')}}">Prestasi</a>
+              <a class="nav-link" href="{{route('achievement.list')}}">Prestasi</a>
             </li>
               <li class="nav-item">
               <a class="nav-link" href="#">Produk</a>

@@ -79,22 +79,58 @@
                     @endforeach
                 </div>
                 </div>
-                <!-- Info Sekolah -->
-                <div class="card">
+                <!-- Berita Terbaru -->
+                <div class="card mb-4">
                     <div class="card-header">
-                        <h3 class="m-0 section-title">Informasi Sekolah</h3>
+                        <h3 class="m-0 section-title">Berita Terbaru</h3>
                     </div>
-                    <div class="card-body text-muted">
-                        <p class="mb-2">
-                            <strong>Nama Sekolah</strong><br>
-                            {{ $profile->name }}
-                        </p>
-                        <p class="mb-0">
-                            <strong>Logo</strong><br>
-                            <img src="{{ asset($profile->logo) }}" alt="Logo Sekolah" class="img-fluid" style="max-height: 100px;">
-                        </p>
+                    <div class="card-body d-grid gap-3">
+                        @foreach($berita_terbaru as $berita)
+                            <div class="d-flex align-items-center border rounded p-2"
+                                style="background: var(--surface); border-color: var(--ring);">
+                                <img src="{{ asset('storage/'.$berita->image) }}"
+                                    alt="{{ $berita->title }}" class="rounded me-3"
+                                    style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
+                                <div class="flex-grow-1">
+                                    <a href="{{ route('news.detail', $berita->slug) }}"
+                                        class="h6 mb-1 d-block text-decoration-none text-truncate">
+                                        {{ $berita->title }}
+                                    </a>
+                                    <small class="text-muted">
+                                        {{ $berita->published_at->format('d F Y') }}
+                                    </small>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
+                <!-- End Berita Terbaru -->
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="m-0 section-title">Prestasi Terbaru</h3>
+                    </div>
+                        <div class="card-body d-grid gap-3">
+                        @foreach($prestasi_terbaru as $item)
+                            <div class="d-flex align-items-center border rounded p-2"
+                                style="background: var(--surface); border-color: var(--ring);">
+                                <img src="{{ asset('storage/'.$item->image) }}"
+                                    alt="{{ $item->title }}" class="rounded me-3"
+                                    style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
+                                <div class="flex-grow-1">
+                                    <a href="{{ route('news.detail', $item->slug) }}"
+                                        class="h6 mb-1 d-block text-decoration-none text-truncate">
+                                        {{ $item->title }}
+                                    </a>
+                                    <small class="text-muted">
+                                        {{ $item->date->format('d F Y') }}
+                                    </small>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
 
             </div>
 
