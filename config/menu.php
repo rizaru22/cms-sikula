@@ -52,6 +52,12 @@
                     'route'=>'admin.product.index',
                     'permission'=>null
                 ],
+                [
+                    'label'=>'Link Terkait',
+                    'icon'=>'fas fa-link',
+                    'route'=>'admin.link.index',
+                    'permission'=>null
+                ],
             ]
 
         ],

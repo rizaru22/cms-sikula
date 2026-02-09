@@ -12,6 +12,12 @@
     </url>
 
     <!-- Produk Sekolah -->
+        <url>
+        <loc>http://127.0.0.1:8000/produk/jasa-perbaikan-lemari-pendingi</loc>
+        <lastmod>2026-02-09T05:46:58+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
     
     <!-- Berita Sekolah -->
         <url>

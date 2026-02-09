@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class ProductController extends Controller
 {
@@ -39,7 +40,7 @@ class ProductController extends Controller
             'contact_person'=>'required|string|max:100',
             'description'=>'nullable|string',
             'unit'=>'required|string|max:100',
-            'gallery'=>'nullable|array',
+            'gallery'=>'nullable|array|max:5',
             'gallery.*'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ],[
             'name.required'=>'Nama produk wajib diisi.',
@@ -52,6 +53,7 @@ class ProductController extends Controller
             'gallery.*.image'=>'File gallery harus berupa gambar.',
             'gallery.*.mimes'=>'Format gallery harus jpeg, png, jpg, gif, atau svg.',
             'gallery.*.max'=>'Ukuran gallery maksimal 2MB per file.',
+            'gallery.max'=>'Jumlah maksimal gambar gallery adalah 5.',
         ]);
         $product = new \App\Models\Produk();
         $product->name = $request->name;
@@ -81,6 +83,7 @@ class ProductController extends Controller
             $product->gallery = json_encode($galleryPaths);
         }
         $product->save();
+        Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.product.index')->with('success', 'Produk berhasil ditambahkan.');
     }
 

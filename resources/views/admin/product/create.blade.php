@@ -1,6 +1,35 @@
 @extends('layouts.app')
 @section('title', 'Produk')
 @section('page_title', 'Daftar Produk')
+@section('styles')
+<style>
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gallery-remove {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(0,0,0,.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+    cursor: pointer;
+}
+</style>
+
+@endsection
 @section('content')
     <div class="card ml-2 mr-2">
         <div class="card-header">
@@ -88,19 +117,32 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="gallery">Galeri</label>
-                    {{-- <div class="custom-file"> --}}
-                    <input type="file" class="form-control-file @error('gallery.*') is-invalid @enderror" id="gallery"
-                        name="gallery[]" accept="image/*" multiple>
-                    {{-- <label class="custom-file-label" for="gallery[]">Pilih Foto Produk</label> --}}
-                    @error('gallery.*')
-                        <span class="invalid-feedback d-block" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    {{-- </div> --}}
-                </div>
+             <div class="form-group">
+    <label>Galeri Produk</label>
+
+    <div class="gallery-upload border rounded p-3">
+        <input type="file"
+            id="galleryInput"
+            name="gallery[]"
+            class="d-none"
+            accept="image/*"
+            multiple>
+
+        <button type="button" class="btn btn-outline-primary mb-3" onclick="document.getElementById('galleryInput').click()">
+            + Tambah Foto
+        </button>
+        <small class="text-muted d-block mt-1">
+    Maksimal 5 foto. Format JPG, PNG. Maks 2MB per foto.
+</small>
+
+        <div id="galleryPreview" class="row g-2"></div>
+    </div>
+
+    @error('gallery.*')
+        <small class="text-danger d-block mt-1">{{ $message }}</small>
+    @enderror
+</div>
+
 
         </div>
         <div class="card-footer text-right">
@@ -129,5 +171,57 @@
             $(function () {
             bsCustomFileInput.init();
             });
+
+           
+const galleryInput = document.getElementById('galleryInput');
+const galleryPreview = document.getElementById('galleryPreview');
+const MAX_FILES = 5;
+
+let filesArray = [];
+
+galleryInput.addEventListener('change', function (e) {
+    for (let file of e.target.files) {
+        if (filesArray.length >= MAX_FILES) {
+            alert('Maksimal 5 foto galeri');
+            break;
+        }
+        filesArray.push(file);
+    }
+    renderPreview();
+});
+
+function renderPreview() {
+    galleryPreview.innerHTML = '';
+
+    filesArray.forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const col = document.createElement('div');
+            col.className = 'col-6 col-md-3 gallery-item';
+
+            col.innerHTML = `
+                <img src="${e.target.result}">
+                <button type="button" class="gallery-remove" onclick="removeImage(${index})">×</button>
+            `;
+            galleryPreview.appendChild(col);
+        };
+        reader.readAsDataURL(file);
+    });
+
+    syncInputFiles();
+}
+
+function removeImage(index) {
+    filesArray.splice(index, 1);
+    renderPreview();
+}
+
+function syncInputFiles() {
+    const dataTransfer = new DataTransfer();
+    filesArray.forEach(file => dataTransfer.items.add(file));
+    galleryInput.files = dataTransfer.files;
+}
+
+
         </script>
     @endsection

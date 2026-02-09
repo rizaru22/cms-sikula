@@ -43,8 +43,8 @@
      <!-- Kompetensi Keahlian -->
     @foreach($kompetensi_keahlians as $kompetensi_keahlian)
     <url>
-        <loc>{{ url('/kompetensi_keahlians/'.$kompetensi_keahlians->slug) }}</loc>
-        <lastmod>{{ \Carbon\Carbon::parse($kompetensi_keahlians->updated_at)->toAtomString() }}</lastmod>
+        <loc>{{ url('/kompetensi_keahlians/'.$kompetensi_keahlian->slug) }}</loc>
+        <lastmod>{{ \Carbon\Carbon::parse($kompetensi_keahlian->updated_at)->toAtomString() }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>

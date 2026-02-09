@@ -23,33 +23,10 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 
+   <link rel=stylesheet href="{{asset('css/app.css')}}">
     @yield('styles')
     @stack('styles')
-    <style>
-        .note-editor .note-editable ul,
-.note-editor .note-editable ol {
-  padding-left: 1.5rem;
-  margin-left: 0;
-  list-style-position: outside;
-}
 
-.note-editor .note-editable li {
-  margin-left: 0;
-}
-
-.summernote-content ul,
-.summernote-content ol {
-  padding-left: 1.5rem;
-  list-style-position: outside;
-}
-
-.summernote-content p {
-  text-indent: 0;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-        </style>
 </head>
 
 <body class="hold-transition sidebar-mini">

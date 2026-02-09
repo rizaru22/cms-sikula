@@ -27,6 +27,7 @@ Route::prefix('admin')->group(function() {
     Route::resource('carousel', \App\Http\Controllers\CarouselController::class)->names('admin.carousel');
     Route::resource('category-achievement', \App\Http\Controllers\CategoryAchievementController::class)->names('admin.category-achievement')->except(['show']);
     Route::resource('kompetensi', \App\Http\Controllers\KompetensiController::class)->names('admin.kompetensi');
+    Route::resource('link', \App\Http\Controllers\LinkController::class)->names('admin.link');
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -38,6 +39,7 @@ Route::get('/berita', \App\Livewire\DaftarBerita::class)->name('news.list');
 Route::get('/prestasi', \App\Livewire\DaftarPrestasi::class)->name('achievement.list');
 Route::get('/produk/{slug}',\App\Livewire\Produk::class)->name('product.detail');
 Route::get('/profil-sekolah', \App\Livewire\Profile::class)->name('profile.school');
+Route::get('/kompetensi-keahlian/{slug}', \App\Livewire\KompetensiKeahlian::class)->name('kompetensi.detail');
 // Route::get('/produk', \App\Livewire\DaftarProduk::class)->name('product.list');
 // Route::get('/galeri', \App\Livewire\DaftarGaleri::class)->name('gallery.list');
 
