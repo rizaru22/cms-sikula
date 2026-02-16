@@ -15,4 +15,15 @@ class KompetensiKeahlian extends Model
         'description',
     ];
 
+    protected static function booted()
+    {
+        static::saved(function(){
+            cache()->forget('sitemap-kompetensi');    
+        });
+
+        static::deleted(function(){
+            cache()->forget('sitemap-kompetensi');    
+        });
+    }
+
 }

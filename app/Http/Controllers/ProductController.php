@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
+//use Illuminate\Support\Facades\Artisan;
 
 class ProductController extends Controller
 {
@@ -83,7 +83,7 @@ class ProductController extends Controller
             $product->gallery = json_encode($galleryPaths);
         }
         $product->save();
-        Artisan::call('app:generate-sitemap');
+        //Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.product.index')->with('success', 'Produk berhasil ditambahkan.');
     }
 

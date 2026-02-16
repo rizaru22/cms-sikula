@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
+//use Illuminate\Support\Facades\Artisan;
 
 class KompetensiController extends Controller
 {
@@ -47,7 +47,7 @@ class KompetensiController extends Controller
         }
 
         $kompetensi->save();
-        Artisan::call('app:generate-sitemap');
+        //Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.kompetensi.index')->with('success', 'Kompetensi Keahlian berhasil ditambahkan.');
     }   
 
@@ -92,7 +92,7 @@ class KompetensiController extends Controller
         }
 
         $kompetensi->save();
-        Artisan::call('app:generate-sitemap');
+        //Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.kompetensi.index')->with('success', 'Kompetensi Keahlian berhasil diperbarui.');
     }
 
@@ -100,7 +100,7 @@ class KompetensiController extends Controller
     {
         $kompetensi = \App\Models\KompetensiKeahlian::findOrFail($id);
         $kompetensi->delete();
-        Artisan::call('app:generate-sitemap');
+        //Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.kompetensi.index')->with('success', 'Kompetensi Keahlian berhasil dihapus.');
     }
 }

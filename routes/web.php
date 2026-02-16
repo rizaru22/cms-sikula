@@ -43,3 +43,11 @@ Route::get('/kompetensi-keahlian/{slug}', \App\Livewire\KompetensiKeahlian::clas
 // Route::get('/produk', \App\Livewire\DaftarProduk::class)->name('product.list');
 // Route::get('/galeri', \App\Livewire\DaftarGaleri::class)->name('gallery.list');
 
+
+
+// sitemap
+Route::get('sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.index');
+Route::get('sitemap-news.xml', [\App\Http\Controllers\SitemapController::class, 'news'])->name('sitemap.news');
+Route::get('sitemap-prestasi.xml', [\App\Http\Controllers\SitemapController::class, 'prestasi'])->name('sitemap.prestasi');
+Route::get('sitemap-produk.xml', [\App\Http\Controllers\SitemapController::class, 'produk'])->name('sitemap.produk');
+Route::get('sitemap-kompetensi.xml', [\App\Http\Controllers\SitemapController::class, 'kompetensi'])->name('sitemap.kompetensi');

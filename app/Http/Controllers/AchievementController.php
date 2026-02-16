@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Achievement;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
+//use Illuminate\Support\Facades\Artisan;
 
 class AchievementController extends Controller
 {
@@ -58,7 +58,7 @@ class AchievementController extends Controller
             'date' => $request->date,
             'image' => $imagePath,
         ]);
-        Artisan::call('app:generate-sitemap');
+        //Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.achievement.index')->with('success', 'Prestasi berhasil ditambahkan');
     }
 
@@ -105,7 +105,7 @@ class AchievementController extends Controller
         $achievement->description=$request->description;
         $achievement->date=$request->date;
         $achievement->save();
-        Artisan::call('app:generate-sitemap');
+        //Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.achievement.index')->with('success', 'Prestasi berhasil diperbarui');
     }
 

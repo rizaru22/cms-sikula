@@ -17,4 +17,15 @@ class News extends Model
     protected $casts = [
     'published_at' => 'datetime',
     ];
+
+    protected static function booted()
+    {
+        static::saved(function(){
+            cache()->forget('sitemap-news');    
+        });
+
+        static::deleted(function(){
+            cache()->forget('sitemap-news');    
+        });
+    }
 }

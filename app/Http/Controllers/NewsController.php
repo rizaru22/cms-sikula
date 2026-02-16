@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
+//use Illuminate\Support\Facades\Artisan;
 
 class NewsController extends Controller
 {
@@ -56,7 +56,7 @@ class NewsController extends Controller
             'content' => $request->content,
             'published_at' => $request->published_at,
         ]);
-        Artisan::call('app:generate-sitemap');
+        //Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.news.index')->with('success', 'Berita berhasil ditambahkan');
     }
 
@@ -91,7 +91,7 @@ class NewsController extends Controller
         $news->content = $request->content;
         $news->published_at = $request->published_at;
         $news->save();
-        Artisan::call('app:generate-sitemap');
+        //Artisan::call('app:generate-sitemap');
         return redirect()->route('admin.news.index')->with('success', 'Berita berhasil diperbarui');
     }
 

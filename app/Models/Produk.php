@@ -23,5 +23,14 @@ class Produk extends Model
         'is_active',
     ];
     protected $casts = ['gallery' => 'array'];
+    protected static function booted()
+    {
+        static::saved(function(){
+            cache()->forget('sitemap-produk');    
+        });
 
+        static::deleted(function(){
+            cache()->forget('sitemap-produk');    
+        });
+    }
 }

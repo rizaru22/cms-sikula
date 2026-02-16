@@ -24,4 +24,15 @@ class Achievement extends Model
         {
             return $this->belongsTo(CategoryAchievement::class, 'category_achievement_id');
         }
+
+    protected static function booted()
+    {
+        static::saved(function(){
+            cache()->forget('sitemap-prestasi');    
+        }); 
+
+        static::deleted(function(){
+            cache()->forget('sitemap-prestasi');    
+        });
+    }
 }
