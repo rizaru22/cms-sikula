@@ -91,7 +91,7 @@
                                 <img src="{{ asset('storage/'.$berita->image) }}"
                                     alt="{{ $berita->title }}" class="rounded me-3"
                                     style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
-                                <div class="flex-grow-1">
+                                <div class="flex-grow-1 overflow-hidden" style="min-width: 0;">
                                     <a href="{{ route('news.detail', $berita->slug) }}"
                                         class="h6 mb-1 d-block text-decoration-none text-truncate">
                                         {{ $berita->title }}
