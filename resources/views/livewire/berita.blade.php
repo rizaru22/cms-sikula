@@ -65,7 +65,7 @@
               <div class="card-header">
                 <h3 class="m-0 section-title">Berita Lainnya</h3>
               </div>
-              <div class="card-body d-grid gap-2">
+              <div class="card-body d-flex flex-column gap-3">
                   @foreach($berita_lainnya as $berita)
                             <div class="d-flex align-items-center border rounded p-2"
                                 style="background: var(--surface); border-color: var(--ring);">
