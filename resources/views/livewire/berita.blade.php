@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-             <div class="col-lg-4 col-md-3 col-sm-12">
+             <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="card">
               <div class="card-header">
                 <h3 class="m-0 section-title">Produk Kami</h3>
@@ -66,56 +66,25 @@
                 <h3 class="m-0 section-title">Berita Lainnya</h3>
               </div>
               <div class="card-body d-grid gap-2">
-                <div class="col">
-                  <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                      <h5 class="card-title">
-                        <i class="bi bi-calendar-event text-warning"></i> Ujian
-                        Tengah Semester
-                      </h5>
-                      <p class="card-text">
-                        <i class="bi bi-clock"></i> 20 - 25 September 2025
-                      </p>
-                      <p class="card-text">
-                        <i class="bi bi-geo-alt"></i> Ruang Kelas 10 - 12
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                      <h5 class="card-title">
-                        <i class="bi bi-calendar-event text-warning"></i>
-                        Seminar Karir
-                      </h5>
-                      <p class="card-text">
-                        <i class="bi bi-clock"></i> 12 Oktober 2025, 09:00 WIB
-                      </p>
-                      <p class="card-text">
-                        <i class="bi bi-geo-alt"></i> Aula Sekolah
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                      <h5 class="card-title">
-                        <i class="bi bi-calendar-event text-warning"></i> Lomba
-                        Futsal Antar Kelas
-                      </h5>
-                      <p class="card-text">
-                        <i class="bi bi-clock"></i> 5 Oktober 2025, 08:00 WIB
-                      </p>
-                      <p class="card-text">
-                        <i class="bi bi-geo-alt"></i> Lapangan Utama
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <a class="btn btn-outline-success btn-sm mt-2" href="#"
-                  >Lihat Agenda Sekolah </a>
+                  @foreach($berita_lainnya as $berita)
+                            <div class="d-flex align-items-center border rounded p-2"
+                                style="background: var(--surface); border-color: var(--ring);">
+                                <img src="{{ asset('storage/'.$berita->image) }}"
+                                    alt="{{ $berita->title }}" class="rounded me-3"
+                                    style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
+                                <div class="flex-grow-1 overflow-hidden" style="min-width: 0;">
+                                    <a href="{{ route('news.detail', $berita->slug) }}"
+                                        class="h6 mb-1 d-block text-decoration-none title-c">
+                                        {{ $berita->title }}
+                                    </a>
+                                    <small class="text-muted">
+                                        {{ $berita->published_at->format('d F Y') }}
+                                    </small>
+                                </div>
+                            </div>
+                        @endforeach
+                <a class="btn btn-outline-success btn-sm mt-2" href="{{ route('news.list') }}"
+                  >Lihat Berita Lainnya</a>
               </div>
             </div>
           </div>
