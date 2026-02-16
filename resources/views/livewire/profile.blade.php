@@ -54,7 +54,7 @@
             </div>
 
             <!-- SIDEBAR -->
-            <div class="col-lg-4 col-md-3 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12">
 
                 <!-- Kompetensi Keahlian -->
                 <div class="card mb-4">
@@ -84,7 +84,7 @@
                     <div class="card-header">
                         <h3 class="m-0 section-title">Berita Terbaru</h3>
                     </div>
-                    <div class="card-body d-grid gap-3">
+                    <div class="card-body d-flex flex-column gap-3">
                         @foreach($berita_terbaru as $berita)
                             <div class="d-flex align-items-center border rounded p-2"
                                 style="background: var(--surface); border-color: var(--ring);">
@@ -93,7 +93,7 @@
                                     style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
                                 <div class="flex-grow-1 overflow-hidden" style="min-width: 0;">
                                     <a href="{{ route('news.detail', $berita->slug) }}"
-                                        class="h6 mb-1 d-block text-decoration-none text-truncate">
+                                        class="h6 mb-1 d-block text-decoration-none title-c">
                                         {{ $berita->title }}
                                     </a>
                                     <small class="text-muted">
