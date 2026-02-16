@@ -4,18 +4,22 @@
 
     <sitemap>
         <loc>{{ url('/sitemap-news.xml') }}</loc>
+        <lastmod>{{ now()->toAtomString() }}</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>{{ url('/sitemap-kompetensi.xml') }}</loc>
+        <lastmod>{{ now()->toAtomString() }}</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>{{ url('/sitemap-produk.xml') }}</loc>
+        <lastmod>{{ now()->toAtomString() }}</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>{{ url('/sitemap-prestasi.xml') }}</loc>
+        <lastmod>{{ now()->toAtomString() }}</lastmod>
     </sitemap>
 
 </sitemapindex>

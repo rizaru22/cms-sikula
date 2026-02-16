@@ -6,6 +6,8 @@
     <url>
         <loc>{{ $baseUrl.'/'.$item->slug }}</loc>
         <lastmod>{{ $item->updated_at->toAtomString() }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
 @endforeach
 
