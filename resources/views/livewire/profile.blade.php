@@ -69,9 +69,9 @@
                                 <img src="{{ asset('storage/'.$kompetensi->logo) }}"
                                     alt="{{ $kompetensi->name }}" class="rounded me-3"
                                     style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
-                                <div class="flex-grow-1">
+                                <div class="flex-grow-1 overflow-hidden" style="min-width: 0;">
                                     <a href="{{ route('kompetensi.detail', $kompetensi->slug) }}"
-                                        class="h6 mb-1 d-block text-decoration-none text-truncate">
+                                        class="h6 mb-1 d-block text-decoration-none title-c">
                                         {{ $kompetensi->name }}
                                     </a>
                                 </div>
@@ -117,9 +117,9 @@
                                 <img src="{{ asset('storage/'.$item->image) }}"
                                     alt="{{ $item->title }}" class="rounded me-3"
                                     style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
-                                <div class="flex-grow-1">
+                                <div class="flex-grow-1 overflow-hidden" style="min-width: 0;">
                                     <a href="{{ route('news.detail', $item->slug) }}"
-                                        class="h6 mb-1 d-block text-decoration-none text-truncate">
+                                        class="h6 mb-1 d-block text-decoration-none title-c">
                                         {{ $item->title }}
                                     </a>
                                     <small class="text-muted">
