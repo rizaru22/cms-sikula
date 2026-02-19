@@ -22,10 +22,10 @@
             <div class="row">
                 <div class="col-md-4">
                     @if ($kompetensi->logo)
-                        <img src="{{ asset($kompetensi->logo) }}" alt="{{ $kompetensi->name }}"
+                        <img src="{{ asset('storage/'.$kompetensi->logo) }}" alt="{{ $kompetensi->name }}"
                             class="img-fluid mb-3">
                     @else
-                        <img src="{{ asset('images/no-image.png') }}" alt="No Image" class="img-fluid mb-3">
+                        <img src="{{ asset('storage/no-image.png') }}" alt="No Image" class="img-fluid mb-3">
                     @endif
                 </div>
                 <div class="col-md-8">
