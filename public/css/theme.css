@@ -137,3 +137,28 @@
     height: 80px;
     object-fit: contain;
 }
+
+.achievement-content p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.achievement-content h2,
+.achievement-content h3,
+.achievement-content h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.achievement-content ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.achievement-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
