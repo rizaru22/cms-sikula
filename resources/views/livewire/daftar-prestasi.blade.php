@@ -54,14 +54,19 @@
                                                 <span class="badge badge-accent mb-2"><i class="bi bi-award"></i>
 
                                                     {{ $prestasi->category_achievement->name }}</span>
-                                                <h5 class="card-title link-accent-title">
+                                                <h5 class="card-title"><a href="{{ route('achievement.detail', $prestasi->slug) }}" class="link-accent-title">
                                                     {{ \Illuminate\Support\Str::limit(strip_tags($prestasi->title), 70, '...') }}
-                                                </h5>
+                                                </a></h5>
 
                                                 <p class="card-text mt-3">
                                                     {{ $prestasi->description }}
                                                 </p>
-
+                                                  <div class="d-flex justify-content-end">
+                                    <a href="{{ route('achievement.detail', $prestasi->slug) }}" 
+                                    class="btn btn-sm btn-outline-success">
+                                    Selengkapnya <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
                                             </div>
 
                                         </div>

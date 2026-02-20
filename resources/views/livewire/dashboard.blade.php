@@ -1,3 +1,4 @@
+
 @push('head')
     <link rel="preload" as="image" href="{{ asset('storage/' . $carousels->first()->image) }}">
 @endpush
@@ -28,16 +29,16 @@
                 <!-- Berita (Grid 8) -->
                 <div class="col-lg-8 col-md-9 col-sm-12">
                     <div class="card h-100">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h3 class="m-0 section-title">Berita Terbaru</h3>
+                        <div class="card-header d-flex justify-content-between align-items-center" data-aos="fade-up">
+                            <h3 class="m-0 section-title" >Berita Terbaru</h3>
                             <a class="btn btn-sm btn-primary" href="{{ route('news.list') }}"><i
                                     class="bi-box-arrow-up-right me-1"></i>Lihat Semua</a>
                         </div>
                         <div class="card-body">
                             <div class="row g-4">
                                 <!-- item berita -->
-                                @foreach ($news as $item)
-                                    <div class="col-md-4 col-sm-6 col-12">
+                                @foreach ($news as $index => $item)
+                                    <div class="col-md-4 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="{{ ($index % 3) * 100 }}">
                                         <article class="card h-100">
                                             <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top"
                                                 alt="{{ $item->title }}" loading="lazy">
@@ -74,7 +75,7 @@
                 <!-- Pengumuman (Grid 4) -->
                 <div class="col-lg-4 col-md-3 col-sm-12">
                     <!-- Product -->
-                    <div class="card">
+                    <div class="card" data-aos="fade-left">
                         <div class="card-header">
                             <h3 class="m-0 section-title">Produk</h3>
                         </div>
@@ -128,7 +129,7 @@
                         </div>
                     </div>
 
-                    <div class="card mt-5">
+                    <div class="card mt-5" data-aos="fade-left" data-aos-delay="100">
                         <div class="card-header">
                             <h3 class="m-0 section-title">Pengumuman</h3>
                         </div>
@@ -181,7 +182,7 @@
             </div>
             <div class="row g-4">
                 @foreach ($achievement as $item)
-                    <div class="col-md-4">
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="{{ ($loop->iteration % 3) * 100 }}">
                         <div class="card h-100">
                             @if ($item->image)
                                 <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top"
@@ -190,19 +191,28 @@
                                 <img src="{{ asset('images/no-image.png') }}" class="card-img-top"
                                     alt="{{ $item->title }}" loading="lazy">
                             @endif
-                            <div class="card-body">
-                                <span class="badge badge-accent mb-2"><i class="bi bi-calendar-event"></i>
-                                    {{ tglIndo($item->date) }}</span>
-                                <span class="badge badge-accent mb-2"><i class="bi bi-award"></i>
-                                   
-                                    {{ $item->category_achievement->name }}</span>
+                                                        <div class="card-body">
+                                <span class="badge badge-accent mb-2">
+                                    <i class="bi bi-calendar-event"></i>
+                                    {{ tglIndo($item->date) }}
+                                </span>
+
+                                <span class="badge badge-accent mb-2">
+                                    <i class="bi bi-award"></i>
+                                    {{ $item->category_achievement->name }}
+                                </span>
+
                                 <div class="d-flex align-items-center mb-2">
                                     <i class="bi bi-trophy fs-3 me-2 text-warning"></i>
                                     <h5 class="m-0">{{ $item->title }}</h5>
                                 </div>
-                                <p class="text-muted">
-                                    {{ $item->description }}
-                                </p>
+
+                                <div class="d-flex justify-content-end">
+                                    <a href="{{ route('achievement.detail', $item->slug) }}" 
+                                    class="btn btn-sm btn-outline-success">
+                                    Selengkapnya <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -210,4 +220,54 @@
             </div>
         </div>
     </section>{{-- Because she competes with no one, no one can compete with her. --}}
+
+    <section class="kompetensi-section py-5" id="kompetensi">
+    <div class="container">
+
+        <div class="row mb-4">
+            <div class="col text-center">
+                <h3 class="section-title" data-aos="fade-up">
+                    Kompetensi Keahlian
+                </h3>
+                <p class="text-muted" data-aos="fade-up" data-aos-delay="100">
+                    Program keahlian unggulan yang kami miliki
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            @foreach($kompetensi as $index => $item)
+                <div class="col-md-4 col-sm-6"
+                     data-aos="fade-up"
+                     data-aos-delay="{{ ($index % 3) * 100 }}">
+
+                    <div class="card kompetensi-card h-100 border-0 shadow-sm">
+                        <div class="text-center p-4">
+
+                            <img src="{{ asset('storage/'.$item->logo) }}"
+                                 alt="{{ $item->nama }}"
+                                 class="kompetensi-logo mb-3">
+
+                            <h5 class="fw-bold">
+                                {{ $item->name }}
+                            </h5>
+
+                            <p class="text-muted small">
+                                {{\Illuminate\Support\Str::limit(strip_tags($item->description), 120) }}
+                            </p>
+
+                            <a href="{{ route('kompetensi.detail', $item->slug) }}"
+                               class="btn btn-outline-success btn-sm mt-2">
+                                Lihat Detail
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+            @endforeach
+        </div>
+
+    </div>
+</section>
 </div>

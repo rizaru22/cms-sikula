@@ -26,7 +26,7 @@
       rel="stylesheet"
     />
    <link rel="stylesheet" href="{{ asset('css/landing.css') }}" />
-   
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
    @if(file_exists(public_path('css/theme.css')))
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
   @endif
@@ -41,7 +41,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="pt-0 mt-0">
+    <footer class="pt-0 mt-0" data-aos="fade-up" data-aos-delay="100">
       <div class="container">
         <div class="row g-4">
           <div class="col-md-4">
@@ -76,5 +76,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     @livewireScripts(['defer' => true])
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              AOS.init({
+                  duration: 700,
+                  easing: 'ease-in-out',
+                  once: true,
+                  offset: 80
+              });
+          });
+
+          document.addEventListener("livewire:navigated", () => {
+              AOS.refresh();
+          });
+    </script>
   </body>
 </html>

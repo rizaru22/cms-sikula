@@ -119,3 +119,21 @@
 .kompetensi-content h3 {
     margin-top: 30px;
 }
+
+.kompetensi-section {
+    background: var(--surface);
+}
+
+.kompetensi-card {
+    transition: all 0.3s ease;
+    border-radius: 14px;
+}
+
+.kompetensi-card:hover {
+    transform: translateY(-6px);
+}
+
+.kompetensi-logo {
+    height: 80px;
+    object-fit: contain;
+}

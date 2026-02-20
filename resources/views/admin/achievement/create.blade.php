@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Deskripsi</label>
-                    <textarea name="description" id="description" class="form-control" placeholder="Juara [peringkat] [nama lomba] Tingkat [tingkat lomba], [penyelenggara], [tahun].">{{ old('description') }}</textarea>
+                    <x-summernote name="description" id="description">{{ old('description') }}</x-summernote>
                     @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

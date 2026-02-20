@@ -14,7 +14,7 @@ class Dashboard extends Component
     {
         $carousels = \App\Models\Carousel::where('status','active')->get();
         $profile = \App\Models\Profile::first();
-
+        $kompetensi = \App\Models\KompetensiKeahlian::all()->sortBy('name');
         $news = \App\Models\News::where('published_at','<=',now())
                 ->orderBy('published_at','desc')
                 ->paginate(6);
@@ -24,7 +24,8 @@ class Dashboard extends Component
         return view('livewire.dashboard',[
                     'carousels'=>$carousels,
                     'news'=>$news,
-                    'achievement'=>$achievement
+                    'achievement'=>$achievement,
+                    'kompetensi'=>$kompetensi
                     ])  
                 ->layout('layouts.landing',[
                     'title'=>'Beranda',
