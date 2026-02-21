@@ -84,6 +84,28 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="image">Unit</label>
+                    <select class="form-control @error('unit_id') is-invalid @enderror" id="unit" name="unit"
+                        required>
+                        <option value="">Pilih Unit</option>
+                        <option value="pcs">pcs</option>
+                        <option value="kg">kg</option>
+                        <option value="ons">ons</option>
+                        <option value="liter">liter</option>
+                        <option value="box">box</option>
+                    </select>
+                </div>
+                    <div class="form-group">
+                    <label for="contact_person">Stok Produk</label>
+                    <input type="number" class="form-control @error('stock') is-invalid @enderror"
+                        id="stock" name="stock" value="{{ old('stock') }}" placeholder="Masukkan Stok Produk" required>
+                    @error('stock')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="contact_person">Nara Hubung</label>
                     <input type="text" class="form-control @error('contact_person') is-invalid @enderror"
                         id="contact_person" name="contact_person" value="{{ old('contact_person') }}"
@@ -104,20 +126,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group">
-                    <label for="image">Unit</label>
-                    <select class="form-control @error('unit_id') is-invalid @enderror" id="unit" name="unit"
-                        required>
-                        <option value="">Pilih Unit</option>
-                        <option value="pcs">pcs</option>
-                        <option value="kg">kg</option>
-                        <option value="ons">ons</option>
-                        <option value="liter">liter</option>
-                        <option value="box">box</option>
-                    </select>
-                </div>
-
-             <div class="form-group">
+            <div class="form-group">
     <label>Galeri Produk</label>
 
     <div class="gallery-upload border rounded p-3">

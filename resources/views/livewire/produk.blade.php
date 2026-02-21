@@ -1,5 +1,5 @@
 <div>
-      <div class="content pt-5 mt-5">
+      <div class="content pt-5 m-5">
         <div class="container pt-4">
             <div class="row g-4 align-items-stretch">
                 <!-- KOLOM UTAMA: DETAIL PRODUK -->
@@ -8,34 +8,81 @@
                         <div class="row g-4">
                             <!-- Foto Produk -->
                             <div class="col-md-6">
-                                <img src="https://images.unsplash.com/photo-1544650030-3c698e0f3395?q=80&w=1000" id="mainImage" class="product-main-img shadow-sm mb-3" alt="Sampul Produk">
-                                <div class="row g-2">
-                                    <div class="col-3"><img src="https://images.unsplash.com/photo-1544650030-3c698e0f3395?q=80&w=1000" class="thumb-img active" onclick="changeImage(this.src, this)"></div>
-                                    <div class="col-3"><img src="https://images.unsplash.com/photo-1589118949245-7d38baf380d6?q=80&w=1000" class="thumb-img" onclick="changeImage(this.src, this)"></div>
-                                    <div class="col-3"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000" class="thumb-img" onclick="changeImage(this.src, this)"></div>
-                                    <div class="col-3"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000" class="thumb-img" onclick="changeImage(this.src, this)"></div>
-                                </div>
+                                @php
+    $mainImage = $product->image 
+        ? asset('storage/'.$product->image) 
+        : asset('images/no-image.png');
+
+    $gallery = $product->gallery ?? [];
+@endphp
+
+<div class="col-md-6">
+    <img src="{{ $mainImage }}"
+         id="mainImage"
+         class="product-main-img shadow-sm mb-3"
+         alt="{{ $product->name }}">
+
+    <div class="row g-2">
+
+        {{-- Thumbnail utama --}}
+        <div class="col-3">
+            <img src="{{ $mainImage }}"
+                 class="thumb-img active"
+                 onclick="changeImage(this.src, this)">
+        </div>
+
+        {{-- Gallery --}}
+        @foreach($gallery as $img)
+            <div class="col-3">
+                <img src="{{ asset('storage/'.$img) }}"
+                     class="thumb-img"
+                     onclick="changeImage(this.src, this)">
+            </div>
+        @endforeach
+
+    </div>
+</div>
                             </div>
 
                             <!-- Deskripsi Singkat -->
                             <div class="col-md-6 d-flex flex-column">
-                                <span class="badge badge-stock mb-2 align-self-start">Stok: 12 Tersedia</span>
-                                <h1 class="section-title h2 mb-2">Meja Belajar Kayu Minimalis</h1>
-                                <p class="text-muted small mb-3">Karya Siswa Jurusan Teknik Konstruksi & Properti</p>
-                                
-                                <div class="price-text mb-4">Rp 750.000</div>
-                                
-                                <div class="mb-4">
-                                    <h6 class="fw-bold mb-2">Deskripsi:</h6>
-                                    <p class="text-muted small">Produk handmade berkualitas tinggi dari siswa SMKN 1 Karang Baru. Menggunakan bahan kayu pilihan dengan finishing yang rapi dan elegan.</p>
-                                </div>
+                               
+    
+    @if($product->stock > 0)
+        <span class="badge bg-success mb-2 align-self-start">Ready</span>
+    @else
+        <span class="badge bg-danger mb-2 align-self-start">Habis</span>
+    @endif
 
-                                <div class="mt-auto">
-                                    <a href="#" class="btn btn-order w-100 mb-2">
-                                        <i class="bi bi-whatsapp me-2"></i> Pesan via WhatsApp
-                                    </a>
-                                    <p class="text-center x-small text-muted" style="font-size: 0.75rem;">* Harga belum termasuk ongkos kirim</p>
-                                </div>
+
+<h1 class="section-title h2 mb-2">
+    {{ $product->name }}
+</h1>
+
+<p class="text-muted small mb-3">
+    Produk Kreatif Siswa
+</p>
+
+<div class="price-text mb-4">
+    Rp {{ number_format($product->price, 0, ',', '.') }}
+</div>
+
+<div class="mb-4">
+    <h6 class="fw-bold mb-2">Deskripsi:</h6>
+    <div class="text-muted small">
+        {!! $product->description !!}
+    </div>
+</div>
+@php
+$waNumber = preg_replace('/\D/','',$product->contact_person);
+$message = urlencode("Halo, saya tertarik dengan produk {$product->name}. Apakah masih tersedia?");
+@endphp
+
+<a href="https://wa.me/{{ $waNumber }}?text={{ $message }}"
+   target="_blank"
+   class="btn btn-order w-100 mb-2">
+   <i class="bi bi-whatsapp me-2"></i> Pesan via WhatsApp
+</a>
                             </div>
                         </div>
                     </div>
@@ -49,47 +96,43 @@
                             <h5 class="m-0 section-title" style="font-size: 1.1rem">Produk Lainnya</h5>
                         </div>
                         <div class="card-body d-grid gap-3">
-                            <div class="d-flex align-items-center gap-3 p-2 border rounded shadow-xs" style="background: var(--surface)">
-                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=100" class="sidebar-card-img" alt="Produk">
-                                <div>
-                                    <h6 class="mb-0" style="font-size: 0.9rem">Kursi Cafe Industrial</h6>
-                                    <span class="text-primary fw-bold small">Rp 350.000</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-3 p-2 border rounded shadow-xs" style="background: var(--surface)">
-                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=100" class="sidebar-card-img" alt="Produk">
-                                <div>
-                                    <h6 class="mb-0" style="font-size: 0.9rem">Headphone Stand Kayu</h6>
-                                    <span class="text-primary fw-bold small">Rp 120.000</span>
-                                </div>
-                            </div>
+                          @foreach($otherProducts as $item)
+    <a href="{{ route('produk.detail',$item->slug) }}" 
+       class="text-decoration-none text-dark">
+        <div class="d-flex align-items-center gap-3 p-2 border rounded shadow-xs mb-2"
+             style="background: var(--surface)">
+            
+            <img src="{{ asset('storage/'.$item->image) }}"
+                 class="sidebar-card-img"
+                 alt="{{ $item->name }}">
+
+            <div>
+                <h6 class="mb-0" style="font-size: 0.9rem">
+                    {{ $item->name }}
+                </h6>
+                <span class="text-primary fw-bold small">
+                    Rp {{ number_format($item->price,0,',','.') }}
+                </span>
+            </div>
+        </div>
+    </a>
+@endforeach
                             <a href="#" class="btn btn-outline-success btn-sm">Lihat Semua Produk</a>
                         </div>
                     </div>
 
-                    <!-- Berita Terbaru di Sidebar -->
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-header bg-white">
-                            <h5 class="m-0 section-title" style="font-size: 1.1rem">Berita Terkini</h5>
-                        </div>
-                        <div class="card-body d-grid gap-2">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0 bg-light">
-                                    <div class="card-body p-3">
-                                        <h6 class="card-title mb-1" style="font-size: 0.9rem">
-                                            <i class="bi bi-calendar-event text-warning"></i> Lomba Kompetensi Siswa
-                                        </h6>
-                                        <p class="card-text x-small text-muted mb-0" style="font-size: 0.8rem;">
-                                            <i class="bi bi-clock"></i> 20 Feb 2026
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-outline-success btn-sm mt-2">Semua Berita</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+function changeImage(src, element) {
+    document.getElementById('mainImage').src = src;
+
+    document.querySelectorAll('.thumb-img')
+        .forEach(img => img.classList.remove('active'));
+
+    element.classList.add('active');
+}
+</script>
 </div>

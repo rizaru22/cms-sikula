@@ -20,12 +20,14 @@ class Dashboard extends Component
                 ->paginate(6);
                 
         $achievement=\App\Models\Achievement::all()->sortByDesc('date')->take(3);
+        $products = \App\Models\Produk::all()->sortByDesc('created_at')->take(4);
 
         return view('livewire.dashboard',[
                     'carousels'=>$carousels,
                     'news'=>$news,
                     'achievement'=>$achievement,
-                    'kompetensi'=>$kompetensi
+                    'kompetensi'=>$kompetensi,
+                    'products'=>$products,
                     ])  
                 ->layout('layouts.landing',[
                     'title'=>'Beranda',

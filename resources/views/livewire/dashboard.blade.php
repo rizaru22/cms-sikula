@@ -80,50 +80,38 @@
                             <h3 class="m-0 section-title">Produk</h3>
                         </div>
                         <div class="card-body d-grid gap-3">
-
-                            <!-- Item Produk -->
-                            <div class="d-flex align-items-center border rounded p-2"
+                            @foreach ($products as $item)
+                                 <div class="d-flex align-items-center border rounded p-2"
                                 style="background: var(--surface); border-color: var(--ring);">
-                                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Produk 1" class="rounded me-3"
+                                <img src="{{ asset('storage/' . $item->image) }}"
+                                    alt="{{ $item->name }}" class="rounded me-3"
                                     style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-1">Seragam Batik</h6>
-                                    <p class="text-muted mb-1" style="font-size: 0.9rem;">Rp120.000</p>
+                                    <h6 class="mb-1">{{ $item->name }}</h6>
+                                    <p class="text-muted mb-1" style="font-size: 0.9rem;">Rp{{ number_format($item->price, 0, ',', '.') }}</p>
+                                    @php
+                                    $waNumber = preg_replace('/\D/','',$item->contact_person);
+                                    $message = urlencode("Halo, saya tertarik dengan produk {$item->name}. Apakah masih tersedia?");
+                                    @endphp
                                     <div class="d-flex gap-2">
-                                        <a href="/produk/kaos-olahraga" class="btn btn-sm btn-outline-success">
+                                        <a href="/produk/{{ $item->slug }}" class="btn btn-sm btn-outline-success">
                                             <i class="bi bi-info-circle"></i> Detail
                                         </a>
-                                        <a href="https://wa.me/6281234567890" target="_blank"
+                                        <a href="https://wa.me/{{ $waNumber }}?text={{ $message }}" target="_blank"
                                             class="btn btn-sm btn-success">
-                                            <i class="bi bi-whatsapp"></i> Hubungi
+                                            <i class="bi bi-whatsapp"></i> Pesan
                                         </a>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
+                            <!-- Item Produk -->
+                          
 
                             <!-- Item Produk -->
-                            <div class="d-flex align-items-center border rounded p-2"
-                                style="background: var(--surface); border-color: var(--ring);">
-                                <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Produk 2" class="rounded me-3"
-                                    style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-1">Kaos Olahraga</h6>
-                                    <p class="text-muted mb-1" style="font-size: 0.9rem;">Rp85.000</p>
-                                    <div class="d-flex gap-2">
-                                        <a href="/produk/kaos-olahraga" class="btn btn-sm btn-outline-success">
-                                            <i class="bi bi-info-circle"></i> Detail
-                                        </a>
-                                        <a href="https://wa.me/6281234567890" target="_blank"
-                                            class="btn btn-sm btn-success">
-                                            <i class="bi bi-whatsapp"></i> Hubungi
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                           
 
-                            <a class="btn btn-outline-success btn-sm mt-2" href="#">
+                            <a class="btn btn-outline-success btn-sm mt-2" href="{{ route('product.list') }}">
                                 Lihat Semua Produk
                             </a>
                         </div>

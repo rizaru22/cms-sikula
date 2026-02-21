@@ -32,7 +32,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="image">Gambar Sam</label>
+                    <label for="image">Gambar Sampul</label>
                     @if($news->image)
                         <div class="mb-2">
                             <img src="{{ asset('storage/' . $news->image) }}" alt="Gambar Berita" class="img-fluid" style="max-height: 200px;">

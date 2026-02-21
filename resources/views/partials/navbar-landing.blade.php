@@ -35,7 +35,7 @@
               <a class="nav-link" href="{{route('achievement.list')}}">Prestasi</a>
             </li>
               <li class="nav-item">
-              <a class="nav-link" href="#">Produk</a>
+              <a class="nav-link" href="{{ route('product.list') }}">Produk</a>
             </li>
           </ul>
         </div>

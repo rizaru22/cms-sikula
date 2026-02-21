@@ -41,7 +41,7 @@ Route::get('/produk/{slug}',\App\Livewire\Produk::class)->name('product.detail')
 Route::get('/profil-sekolah', \App\Livewire\Profile::class)->name('profile.school');
 Route::get('/kompetensi-keahlian/{slug}', \App\Livewire\KompetensiKeahlian::class)->name('kompetensi.detail');
 Route::get('/prestasi/{slug}', \App\Livewire\Prestasi::class)->name('achievement.detail');
-// Route::get('/produk', \App\Livewire\DaftarProduk::class)->name('product.list');
+Route::get('/produk', \App\Livewire\DaftarProduk::class)->name('product.list');
 // Route::get('/galeri', \App\Livewire\DaftarGaleri::class)->name('gallery.list');
 
 
