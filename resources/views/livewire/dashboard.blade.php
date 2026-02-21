@@ -80,8 +80,8 @@
                             <h3 class="m-0 section-title">Produk</h3>
                         </div>
                         <div class="card-body d-grid gap-3">
-                            @foreach ($products as $item)
-                                 <div class="d-flex align-items-center border rounded p-2"
+                            @forelse ($products as $item)
+                            <div class="d-flex align-items-center border rounded p-2"
                                 style="background: var(--surface); border-color: var(--ring);">
                                 <img src="{{ asset('storage/' . $item->image) }}"
                                     alt="{{ $item->name }}" class="rounded me-3"
@@ -104,57 +104,44 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
-                            <!-- Item Produk -->
-                          
-
-                            <!-- Item Produk -->
-                           
 
                             <a class="btn btn-outline-success btn-sm mt-2" href="{{ route('product.list') }}">
                                 Lihat Semua Produk
                             </a>
+                            @empty
+                            <p class="text-muted mb-0">Belum ada produk tersedia.</p>
+                            @endforelse
                         </div>
                     </div>
 
                     <div class="card mt-5" data-aos="fade-left" data-aos-delay="100">
-                        <div class="card-header">
-                            <h3 class="m-0 section-title">Pengumuman</h3>
-                        </div>
-                        <div class="card-body d-grid gap-2">
-                            <div class="p-2 rounded border"
-                                style="
-                    background: var(--surface);
-                    border-color: var(--ring);
-                    min-height: 80px;
-                  ">
-                                <span class="badge badge-accent mb-1"><i class="bi bi-megaphone"></i> 30 April
-                                    2025</span>
-                                <h6 class="mb-1" style="font-size: 1rem">
-                                    PPDB Gelombang 1 Dibuka
-                                </h6>
-                                <p class="text-muted mb-0" style="font-size: 0.9rem">
-                                    Pendaftaran peserta didik baru dilakukan secara online.
-                                </p>
-                            </div>
-                            <div class="p-2 rounded border"
-                                style="
-                    background: var(--surface);
-                    border-color: var(--ring);
-                    min-height: 80px;
-                  ">
-                                <span class="badge badge-accent mb-1"><i class="bi bi-megaphone"></i> 10 Mei
-                                    2025</span>
-                                <h6 class="mb-1" style="font-size: 1rem">
-                                    Libur Kenaikan Kelas
-                                </h6>
-                                <p class="text-muted mb-0" style="font-size: 0.9rem">
-                                    Kegiatan belajar mengajar kembali aktif pada 20 Mei.
-                                </p>
-                            </div>
-                            <a class="btn btn-outline-success btn-sm mt-2" href="#">Semua Pengumuman</a>
-                        </div>
-                    </div>
+    <div class="card-header">
+        <h3 class="m-0 section-title">Pengumuman</h3>
+    </div>
+
+    <div class="card-body d-grid gap-3">
+        @forelse ($announcement as $item)
+            <div class="p-2 rounded border"
+                style="background: var(--surface); border-color: var(--ring);">
+                
+                <span class="badge badge-accent mb-1">
+                    <i class="bi bi-megaphone"></i>
+                    {{ tglIndo($item->event_date) }}
+                </span>
+
+                <h6 class="mb-1" style="font-size: 1rem">
+                    {{ $item->title }}
+                </h6>
+
+                <p class="text-muted mb-0" style="font-size: 0.9rem">
+                    {{ \Illuminate\Support\Str::limit(strip_tags($item->description), 100, '...') }}
+                </p>
+            </div>
+        @empty
+            <p class="text-muted mb-0">Belum ada pengumuman aktif.</p>
+        @endforelse
+    </div>
+</div>
                 </div>
             </div>
         </div>

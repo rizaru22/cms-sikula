@@ -60,7 +60,7 @@
 </h1>
 
 <p class="text-muted small mb-3">
-    Produk Kreatif Siswa
+    Produk/Jasa Kreatif Siswa
 </p>
 
 <div class="price-text mb-4">
@@ -92,13 +92,12 @@ $message = urlencode("Halo, saya tertarik dengan produk {$product->name}. Apakah
                 <div class="col-lg-4">
                     <!-- Produk Populer -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-white">
+                        <div class="card-header">
                             <h5 class="m-0 section-title" style="font-size: 1.1rem">Produk Lainnya</h5>
                         </div>
                         <div class="card-body d-grid gap-3">
-                          @foreach($otherProducts as $item)
-    <a href="{{ route('produk.detail',$item->slug) }}" 
-       class="text-decoration-none text-dark">
+                          @forelse($otherProducts as $item)
+    
         <div class="d-flex align-items-center gap-3 p-2 border rounded shadow-xs mb-2"
              style="background: var(--surface)">
             
@@ -110,14 +109,30 @@ $message = urlencode("Halo, saya tertarik dengan produk {$product->name}. Apakah
                 <h6 class="mb-0" style="font-size: 0.9rem">
                     {{ $item->name }}
                 </h6>
-                <span class="text-primary fw-bold small">
+                <span class="text-muted  small">
                     Rp {{ number_format($item->price,0,',','.') }}
                 </span>
+                @php
+                                    $waNumber = preg_replace('/\D/','',$item->contact_person);
+                                    $message = urlencode("Halo, saya tertarik dengan produk {$item->name}. Apakah masih tersedia?");
+                                    @endphp
+                                    <div class="d-flex gap-2">
+                                        <a href="/produk/{{ $item->slug }}" class="btn btn-sm btn-outline-success">
+                                            <i class="bi bi-info-circle"></i> Detail
+                                        </a>
+                                        <a href="https://wa.me/{{ $waNumber }}?text={{ $message }}" target="_blank"
+                                            class="btn btn-sm btn-success">
+                                            <i class="bi bi-whatsapp"></i> Pesan
+                                        </a>
+                                    </div>
             </div>
         </div>
-    </a>
-@endforeach
-                            <a href="#" class="btn btn-outline-success btn-sm">Lihat Semua Produk</a>
+    
+    <a href="{{ route('product.list') }}" class="btn btn-outline-success btn-sm">Lihat Semua Produk</a>
+@empty
+    <p class="text-muted mb-0">Tidak ada produk lain tersedia.</p>
+@endforelse
+                            
                         </div>
                     </div>
 

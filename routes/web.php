@@ -28,6 +28,7 @@ Route::prefix('admin')->group(function() {
     Route::resource('category-achievement', \App\Http\Controllers\CategoryAchievementController::class)->names('admin.category-achievement')->except(['show']);
     Route::resource('kompetensi', \App\Http\Controllers\KompetensiController::class)->names('admin.kompetensi');
     Route::resource('link', \App\Http\Controllers\LinkController::class)->names('admin.link');
+    Route::resource('announcement', \App\Http\Controllers\AnnouncementController::class)->names('admin.announcement')->except(['show']);
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

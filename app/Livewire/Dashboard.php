@@ -21,6 +21,8 @@ class Dashboard extends Component
                 
         $achievement=\App\Models\Achievement::all()->sortByDesc('date')->take(3);
         $products = \App\Models\Produk::all()->sortByDesc('created_at')->take(4);
+        $announcemments=\App\Models\Pengumuman::whereDate('event_date','<=',today())->whereDate('end_date','>=',today())->get();
+
 
         return view('livewire.dashboard',[
                     'carousels'=>$carousels,
@@ -28,6 +30,7 @@ class Dashboard extends Component
                     'achievement'=>$achievement,
                     'kompetensi'=>$kompetensi,
                     'products'=>$products,
+                    'announcement'=>$announcemments,
                     ])  
                 ->layout('layouts.landing',[
                     'title'=>'Beranda',

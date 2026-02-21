@@ -176,7 +176,7 @@ class ProductController extends Controller
         }
         // Hapus file gallery dari storage
         if ($product->gallery) {
-            $galleryImages = json_decode($product->gallery, true);
+            $galleryImages = $product->gallery;
             foreach ($galleryImages as $imagePath) {
                 \Illuminate\Support\Facades\Storage::disk('public')->delete($imagePath);
             }
