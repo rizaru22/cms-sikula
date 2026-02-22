@@ -37,6 +37,8 @@
               <li class="nav-item">
               <a class="nav-link" href="{{ route('product.list') }}">Produk</a>
             </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('ppdb.info') }}">PPDB</a>
           </ul>
         </div>
       </div>

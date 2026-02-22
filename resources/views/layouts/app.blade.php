@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
-
-   <link rel=stylesheet href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel=stylesheet href="{{asset('css/app.css')}}">
     @yield('styles')
     @stack('styles')
 
@@ -60,7 +60,28 @@
 
             <!-- Main content -->
             <section class="content">
+                {{-- ERROR MESSAGE --}}
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show mt-2">
+                        <i class="fas fa-times-circle mr-1"></i>
+                        {{ session('error') }}
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                @endif
 
+                {{-- VALIDATION ERROR --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger mt-2">
+                        <strong>Terjadi kesalahan:</strong>
+                        <ul class="mb-0 mt-2">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <!-- Default box -->
                 @yield('content')
                 <!-- /.card -->
@@ -91,7 +112,19 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+    @if(session('success'))
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "timeOut": "4000",
+            "positionClass": "toast-top-right"
+        };
+        toastr.success("{{ session('success') }}");
+    @endif
+</script>
     @yield('scripts')
     @stack('scripts')
-
+</body>
 </html>

@@ -30,6 +30,10 @@ Route::prefix('admin')->group(function() {
     Route::resource('link', \App\Http\Controllers\LinkController::class)->names('admin.link')->except(['show']);
     Route::patch('link/{id}/toggle', [\App\Http\Controllers\LinkController::class, 'toggle'])->name('admin.link.toggle');
     Route::resource('announcement', \App\Http\Controllers\AnnouncementController::class)->names('admin.announcement')->except(['show']);
+    Route::resource('ppdb', \App\Http\Controllers\PpdbController::class)->names('admin.ppdb');
+    Route::patch('ppdb/{id}/toggle-status', [\App\Http\Controllers\PpdbController::class, 'toggleStatus'])->name('admin.ppdb.toggleStatus');
+    Route::patch('ppdb/{id}/toggle-active', [\App\Http\Controllers\PpdbController::class, 'activate'])->name('admin.ppdb.toggleActive');
+
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -44,6 +48,7 @@ Route::get('/profil-sekolah', \App\Livewire\Profile::class)->name('profile.schoo
 Route::get('/kompetensi-keahlian/{slug}', \App\Livewire\KompetensiKeahlian::class)->name('kompetensi.detail');
 Route::get('/prestasi/{slug}', \App\Livewire\Prestasi::class)->name('achievement.detail');
 Route::get('/produk', \App\Livewire\DaftarProduk::class)->name('product.list');
+Route::get('/info-ppdb', \App\Livewire\Ppdb::class)->name('ppdb.info');
 
 // Route::get('/galeri', \App\Livewire\DaftarGaleri::class)->name('gallery.list');
 

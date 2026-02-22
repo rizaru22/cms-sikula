@@ -59,7 +59,7 @@
           <div class="col-md-4">
             <h6 class="mb-3">Tautan</h6>
             <ul class="list-unstyled small">
-            @foreach($links as $link)<li><a href="{{$link->url}}">{{$link->name}}</a></li>
+            @foreach($links as $link)<li><a href="{{$link->url}}" class="text-decoration-none">{{$link->name}}</a></li>
             @endforeach
             </ul>
           </div>

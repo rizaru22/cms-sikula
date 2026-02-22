@@ -53,6 +53,12 @@
                     'permission'=>null
                 ],
                 [
+                    'label'=>'PPDB',
+                    'icon'=>'fas fa-user-plus',
+                    'route'=>'admin.ppdb.index',
+                    'permission'=>null
+                ],
+                [
                     'label'=>'Link Terkait',
                     'icon'=>'fas fa-link',
                     'route'=>'admin.link.index',
