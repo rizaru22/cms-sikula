@@ -39,6 +39,10 @@
             </li>
               <li class="nav-item">
               <a class="nav-link" href="{{ route('ppdb.info') }}">PPDB</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('lms') }}">LMS</a>
+            </li>
           </ul>
         </div>
       </div>

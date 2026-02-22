@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'lms' => [
+    'url' => env('LMS_URL'),
+    ],
+
 ];

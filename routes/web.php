@@ -49,6 +49,9 @@ Route::get('/kompetensi-keahlian/{slug}', \App\Livewire\KompetensiKeahlian::clas
 Route::get('/prestasi/{slug}', \App\Livewire\Prestasi::class)->name('achievement.detail');
 Route::get('/produk', \App\Livewire\DaftarProduk::class)->name('product.list');
 Route::get('/info-ppdb', \App\Livewire\Ppdb::class)->name('ppdb.info');
+Route::get('/lms', function () {
+    return redirect()->away(config('services.lms.url'));
+})->name('lms');
 
 // Route::get('/galeri', \App\Livewire\DaftarGaleri::class)->name('gallery.list');
 
