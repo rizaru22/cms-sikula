@@ -40,4 +40,15 @@
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
 
+  /* Navbar Dark */
+--navbar-bg: #162a1c;
+--navbar-border: rgba(255,255,255,0.06);
+
+/* Overlay */
+--overlay-dark: rgba(0,0,0,0.3);
+
+/* Gradient */
+--ppdb-gradient-start: #c6a700;
+--ppdb-gradient-end: #0f5132;
+
 }
