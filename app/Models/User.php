@@ -45,4 +45,34 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getAvatarColorAttribute()
+{
+    $colors = [
+        '#20C997',
+        '#0d6efd',
+        '#6f42c1',
+        '#fd7e14',
+        '#dc3545',
+        '#198754'
+    ];
+
+    return $colors[crc32($this->email) % count($colors)];
+}
+public function getInitialAttribute()
+{
+    $words = explode(' ', $this->name);
+    $initial = '';
+
+    foreach ($words as $word) {
+        $initial .= strtoupper(substr($word, 0, 1));
+    }
+
+    return substr($initial, 0, 2);
+}
+
+public function getIsSuperAdminAttribute()
+{
+    return $this->id === 1;
+}
 }

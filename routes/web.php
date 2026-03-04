@@ -1,12 +1,13 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+// use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SchoolProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SummernoteController;
 use App\Http\Controllers\AchievementController;
@@ -14,9 +15,16 @@ use App\Http\Controllers\AnnouncementController;
 
 
 
-Route::prefix('admin')->group(function() {
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+Route::middleware(['auth'])->prefix('admin')->group(function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::resource('profile', ProfileController::class)->names('admin.profile');
+    Route::resource('profile', SchoolProfileController::class)->names('admin.profile');
     Route::resource('news', NewsController::class)->names('admin.news');
     Route::resource('achievement', AchievementController::class)->names('admin.achievement');
     Route::resource('product', ProductController::class)->names('admin.product');
@@ -33,12 +41,17 @@ Route::prefix('admin')->group(function() {
     Route::resource('ppdb', \App\Http\Controllers\PpdbController::class)->names('admin.ppdb');
     Route::patch('ppdb/{id}/toggle-status', [\App\Http\Controllers\PpdbController::class, 'toggleStatus'])->name('admin.ppdb.toggleStatus');
     Route::patch('ppdb/{id}/toggle-active', [\App\Http\Controllers\PpdbController::class, 'activate'])->name('admin.ppdb.toggleActive');
-
+    Route::get('/change-password', [\App\Http\Controllers\Auth\PasswordController::class, 'edit'])->name('admin.password.edit');
+    Route::post('/change-password', [\App\Http\Controllers\Auth\PasswordController::class, 'update'])->name('admin.password.update');
 });
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// sitemap
+Route::get('sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.index');
+Route::get('sitemap-news.xml', [\App\Http\Controllers\SitemapController::class, 'news'])->name('sitemap.news');
+Route::get('sitemap-prestasi.xml', [\App\Http\Controllers\SitemapController::class, 'prestasi'])->name('sitemap.prestasi');
+Route::get('sitemap-produk.xml', [\App\Http\Controllers\SitemapController::class, 'produk'])->name('sitemap.produk');
+Route::get('sitemap-kompetensi.xml', [\App\Http\Controllers\SitemapController::class, 'kompetensi'])->name('sitemap.kompetensi');
+
 Route::get('/',\App\Livewire\Dashboard::class)->name('home');
 Route::get('/berita/{slug}', \App\Livewire\Berita::class)->name('news.detail');
 Route::get('/berita', \App\Livewire\DaftarBerita::class)->name('news.list');
@@ -53,13 +66,4 @@ Route::get('/lms', function () {
     return redirect()->away(config('services.lms.url'));
 })->name('lms');
 
-// Route::get('/galeri', \App\Livewire\DaftarGaleri::class)->name('gallery.list');
-
-
-
-// sitemap
-Route::get('sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.index');
-Route::get('sitemap-news.xml', [\App\Http\Controllers\SitemapController::class, 'news'])->name('sitemap.news');
-Route::get('sitemap-prestasi.xml', [\App\Http\Controllers\SitemapController::class, 'prestasi'])->name('sitemap.prestasi');
-Route::get('sitemap-produk.xml', [\App\Http\Controllers\SitemapController::class, 'produk'])->name('sitemap.produk');
-Route::get('sitemap-kompetensi.xml', [\App\Http\Controllers\SitemapController::class, 'kompetensi'])->name('sitemap.kompetensi');
+require __DIR__.'/auth.php';

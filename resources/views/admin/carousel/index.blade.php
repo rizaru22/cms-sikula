@@ -6,7 +6,7 @@
     <div class="card card-solid ml-3 mr-3">
         <div class="card-body pb-0">
             <div class="text-right mb-3">
-                <button class="btn btn-success" data-toggle="modal" data-target="#modal-default"><i class="fas fa-plus"></i>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="fas fa-plus"></i>
                     <b>Carousel</b></button>
             </div>
             <div class="row">

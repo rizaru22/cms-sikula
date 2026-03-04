@@ -5,7 +5,7 @@
     <div class="card ml-2 mr-2">
     <div class="card-header">
         <div class="text-right">
-        <a href="{{ route('admin.category-achievement.create') }}" class="btn btn-success"><i class="fas fa-plus"></i>&nbsp;Kategori Prestasi</a>
+        <a href="{{ route('admin.category-achievement.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Kategori Prestasi</a>
         </div>
     </div>
     <div class="card-body">

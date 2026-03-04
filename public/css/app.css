@@ -1,4 +1,40 @@
-        .note-editor .note-editable ul,
+:root {
+    --brand-color: #20C997;
+    --brand-hover: #19a179;
+}
+
+/* =========================
+   GLOBAL CARD HEADER BRAND
+========================= */
+
+.bg-brand {
+    background-color: var(--brand-color) !important;
+    color: #fff !important;
+}
+
+.card-header .card-title {
+    color: #fff;
+}
+
+/* icon di header */
+.card-header i {
+    color: #fff;
+}
+
+
+.avatar-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--brand-color);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+.note-editor .note-editable ul,
         .note-editor .note-editable ol {
         padding-left: 1.5rem;
         margin-left: 0;

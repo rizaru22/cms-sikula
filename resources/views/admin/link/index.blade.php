@@ -5,7 +5,7 @@
     <div class="card ml-2 mr-2">
         <div class="card-header">
             <div class="text-right">
-                <a href="{{ route('admin.link.create') }}" class="btn btn-success"><i
+                <a href="{{ route('admin.link.create') }}" class="btn btn-primary"><i
                         class="fas fa-plus"></i>&nbsp;Link</a>
             </div>
         </div>

@@ -40,12 +40,12 @@
                     'route'=>'admin.announcement.index',
                     'permission'=>null
                 ],
-                [
-                    'label'=>'Agenda',
-                    'icon'=>'fas fa-calendar-day',
-                    'route'=>'admin.agenda.index',
-                    'permission'=>null
-                ],
+                // [
+                //     'label'=>'Agenda',
+                //     'icon'=>'fas fa-calendar-day',
+                //     'route'=>'admin.agenda.index',
+                //     'permission'=>null
+                // ],
                 [
                     'label'=>'Produk',
                     'icon'=>'fas fa-cart-plus',
