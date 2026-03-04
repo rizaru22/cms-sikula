@@ -2,21 +2,30 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>{{ $code }} - {{ $title }}</title>
+    <title>{{ $code ?? 'Error' }} - {{ $title ?? config('app.name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/landing.css') }}" />
 
+    @if(file_exists(public_path('css/theme.css')))
+        <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    @endif
     <style>
+        :root {
+           
+            --text-light: #ffffff;
+        }
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #198754, #d9fd0d);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            color: var(--text-light);
             text-align: center;
         }
 
@@ -52,17 +61,22 @@
         .btn-home {
             display: inline-block;
             padding: 12px 30px;
-            background: #fff;
-            color: #198754;
+            background: #ffffff;
+            color: var(--primary);
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: 0.3s;
         }
 
+        .btn-home.primary {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
         .btn-home:hover {
             transform: translateY(-3px);
-            background: #f5f5f5;
+            opacity: 0.9;
         }
 
         .footer-text {
@@ -81,24 +95,26 @@
 <body>
 
 <div class="error-container">
-    <div class="error-code">{{ $code }}</div>
-    <div class="error-title">{{ $title }}</div>
-    <div class="error-message">{{ $message }}</div>
+    <div class="error-code">{{ $code ?? '500' }}</div>
+    <div class="error-title">{{ $title ?? 'Terjadi Kesalahan' }}</div>
+    <div class="error-message">
+        {{ $message ?? 'Maaf, terjadi kesalahan pada sistem.' }}
+    </div>
 
-  <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+    <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
 
-   <a href="javascript:void(0)" onclick="goBack()" class="btn-home">
-    ⬅ Kembali
-</a>
+        <a href="javascript:void(0)" onclick="goBack()" class="btn-home">
+            ⬅ Kembali
+        </a>
 
-    <a href="{{ url('/') }}" class="btn-home" style="background:#198754; color:#fff;">
-        🏠 Beranda
-    </a>
+        <a href="{{ url('/') }}" class="btn-home primary">
+            🏠 Beranda
+        </a>
 
-</div>
+    </div>
 
     <div class="footer-text">
-        © {{ date('Y') }} {{ config('app.name') }}
+        © {{ date('Y') }} {{ $school->name ?? config('app.name') }}
     </div>
 </div>
 
@@ -111,5 +127,6 @@
         }
     }
 </script>
+
 </body>
 </html>
