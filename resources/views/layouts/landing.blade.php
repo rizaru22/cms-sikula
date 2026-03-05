@@ -29,11 +29,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-   <link rel="stylesheet" href="{{ asset('css/landing.css') }}" />
-   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-   @if(file_exists(public_path('css/theme.css')))
-    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
-  @endif
+    <link rel="stylesheet" href="{{ asset('css/landing.css') }}" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('themes/'.env('SCHOOL_THEME').'.css') }}">
   @stack('head')
    @livewireStyles
   </head>

@@ -23,26 +23,15 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
-            <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Beranda</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{route('profile.school')}}">Profil Sekolah</a></li>
-              
-            
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('news.list')}}">Berita</a>
-            </li>
-              
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('achievement.list')}}">Prestasi</a>
-            </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ route('product.list') }}">Produk</a>
-            </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ route('ppdb.info') }}">PPDB</a>
-            </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ route('lms') }}">LMS</a>
-            </li>
+            @foreach($menus as $menu)
+              @if(\Illuminate\Support\Facades\Route::has($menu->route))
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route($menu->route) }}">
+                    {{ $menu->name }}
+                  </a>
+                </li>
+              @endif
+            @endforeach
           </ul>
         </div>
       </div>
