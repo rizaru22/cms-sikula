@@ -9,7 +9,7 @@
             @foreach ($carousels as $carousel)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                     <img src="{{ asset('storage/' . $carousel->image) }}" class="d-block w-100 elegant-img"
-                        alt="{{ $profile->short_name }}-{{ $loop->iteration }}" style="height:60vh; width:100%; object-fit:fill;">
+                        alt="{{ $profile->short_name }}-{{ $loop->iteration }}" style="height:70vh; width:100%;" loading="lazy">
                 </div>
             @endforeach
         </div>
