@@ -1,0 +1,97 @@
+:root {
+
+  /* Base */
+  --bg: #f7fafb;
+  --surface: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7a85;
+
+  /* Primary (Turquoise dari logo outline) */
+  --primary: #0f9ea8;
+  --primary-600: #0b858d;
+  --primary-50: #e5f6f7;
+
+  /* Accent (Merah logo utama) */
+  --accent: #e31e24;
+  --accent-600: #c81a1f;
+  --accent-50: #fde9ea;
+
+  /* Border & ring */
+  --ring: #d8e9ea;
+
+  /* Footer */
+  --footer-bg: #0e2f32;
+  --footer-text: #eef6f7;
+
+  /* Badge accent */
+  --badge-accent-text: #7a1a1d;
+  --badge-accent-border: #f2b8ba;
+
+  /* Button */
+  --btn-text-light: #ffffff;
+
+  /* Shadow */
+  --shadow-light: rgba(0, 0, 0, 0.08);
+
+  /* Carousel overlay */
+  --carousel-bg: rgba(15, 158, 168, 0.35);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+
+  /* Navbar */
+  --navbar-bg: #0e2f32;
+  --navbar-border: rgba(255,255,255,0.06);
+
+  /* Overlay */
+  --overlay-dark: rgba(0,0,0,0.3);
+
+  /* Gradient (section hero / ppdb) */
+  --ppdb-gradient-start: #e31e24;
+  --ppdb-gradient-end: #0f9ea8;
+
+}
+
+/* SUCCESS BUTTON */
+.btn-success {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--btn-text-light);
+}
+
+.btn-success:hover {
+  background-color: var(--primary-600);
+  border-color: var(--primary-600);
+  color: var(--btn-text-light);
+}
+
+.btn-success:focus,
+.btn-success:active {
+  background-color: var(--primary-600);
+  border-color: var(--primary-600);
+  box-shadow: 0 0 0 0.25rem rgba(198, 40, 40, 0.25);
+}
+
+
+/* OUTLINE PRIMARY */
+.btn-outline-success {
+  color: var(--primary);
+  border-color: var(--primary);
+  background-color: transparent;
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-success:focus,
+.btn-outline-success:active {
+  color: #fff;
+  background-color: var(--primary-600);
+  border-color: var(--primary-600);
+  box-shadow: 0 0 0 0.25rem rgba(198, 40, 40, 0.25);
+}

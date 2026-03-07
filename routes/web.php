@@ -43,6 +43,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
     Route::patch('ppdb/{id}/toggle-active', [\App\Http\Controllers\PpdbController::class, 'activate'])->name('admin.ppdb.toggleActive');
     Route::get('/change-password', [\App\Http\Controllers\Auth\PasswordController::class, 'edit'])->name('admin.password.edit');
     Route::post('/change-password', [\App\Http\Controllers\Auth\PasswordController::class, 'update'])->name('admin.password.update');
+    Route::resource('menu', \App\Http\Controllers\MenuController::class)->names('admin.menu')->except(['show']);
+    Route::patch('menu/{id}/toggle', [\App\Http\Controllers\MenuController::class, 'toggle'])->name('admin.menu.toggle');
 });
 
 // sitemap

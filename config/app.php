@@ -123,7 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'version' => '1.0.0',
+    'version' => env('APP_VERSION', '1.0.0'),
 
     
 

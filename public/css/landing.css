@@ -373,7 +373,9 @@ footer a:hover {
 .ppdb-content ul {
     padding-left: 1.2rem;
 }
-
+.ppdb-content img {
+    max-width: 100%;
+}
 @media (max-width: 991.98px) {
   .navbar-logo {
     height: 32px;
@@ -393,6 +395,8 @@ footer a:hover {
     height: 40vh;
     /* tablet */
   }
+
+
 }
 
 @media (max-width: 575.98px) {

@@ -8,9 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/landing.css') }}" />
 
-    @if(file_exists(public_path('css/theme.css')))
-        <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
-    @endif
+   <link rel="stylesheet" href="{{ asset('themes/'.env('SCHOOL_THEME').'.css') }}">
     <style>
         :root {
            

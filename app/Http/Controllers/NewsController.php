@@ -12,7 +12,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::all();
+        $news = News::all()->sortByDesc('published_at');
         $breadcrumbs=[
             'Konten' => '#',
             'Berita' => route('admin.news.index'),

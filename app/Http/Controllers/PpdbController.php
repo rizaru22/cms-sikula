@@ -10,7 +10,7 @@ class ppdbController extends Controller
     //
     public function index()
     {
-        $ppdbs = \App\Models\Ppdb::all();
+        $ppdbs = \App\Models\Ppdb::all()->sortByDesc('created_at');
         return view('admin.ppdb.index', compact('ppdbs'));
     }
 

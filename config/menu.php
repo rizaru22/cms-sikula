@@ -7,6 +7,36 @@
             'permission' => null
         ],
         [
+            'label'=>'Pengaturan',
+            'icon'=>'fas fa-cogs',
+            'children'=>[
+                [
+                    'label'=>'Profil Sekolah',
+                    'icon'=>'fas fa-address-card',
+                    'route'=>'admin.profile.index',
+                    'permission'=>null
+                ],
+                [
+                    'label'=>'Menu',
+                    'icon'=>'fas fa-list',
+                    'route'=>'admin.menu.index',
+                    'permission'=>null
+                ],
+                [
+                    'label'=>'Carousel',
+                    'icon'=>'fas fa-images',
+                    'route'=>'admin.carousel.index',
+                    'permission'=>null
+                ],
+                [
+                    'label'=>'Pengguna',
+                    'icon'=>'fas fa-users',
+                    'route'=>'admin.users.index',
+                    'permission'=>null
+                ],
+            ]
+        ],
+        [
             'label'=>'Konten',
             'icon'=>'fas fa-newspaper',
             'children'=>[
@@ -67,29 +97,6 @@
             ]
 
         ],
-        [
-            'label'=>'Pengaturan',
-            'icon'=>'fas fa-cogs',
-            'children'=>[
-                [
-                    'label'=>'Profil Sekolah',
-                    'icon'=>'fas fa-address-card',
-                    'route'=>'admin.profile.index',
-                    'permission'=>null
-                ],
-                [
-                    'label'=>'Carousel',
-                    'icon'=>'fas fa-images',
-                    'route'=>'admin.carousel.index',
-                    'permission'=>null
-                ],
-                [
-                    'label'=>'Pengguna',
-                    'icon'=>'fas fa-users',
-                    'route'=>'admin.users.index',
-                    'permission'=>null
-                ],
-            ]
-        ],
+        
 
     ];

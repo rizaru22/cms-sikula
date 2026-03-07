@@ -118,9 +118,9 @@
                                     alt="{{ $item->title }}" class="rounded me-3"
                                     style="width: 70px; height: 70px; object-fit: cover;" loading="lazy">
                                 <div class="flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                    <a href="{{ route('news.detail', $item->slug) }}"
+                                    <a href="{{ route('achievement.detail', $item->slug) }}"
                                         class="h6 mb-1 d-block text-decoration-none title-c">
-                                        {{ $item->title }}
+                                        {{ $item->title }} 
                                     </a>
                                     <small class="text-muted">
                                         {{ $item->date->format('d F Y') }}

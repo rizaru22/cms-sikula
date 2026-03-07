@@ -14,11 +14,18 @@
 
 .card-header .card-title {
     color: #fff;
+    
 }
 
 /* icon di header */
 .card-header i {
     color: #fff;
+
+}
+
+.card-header{
+    background-color: var(--brand-color) !important;
+    border-bottom: 1px solid var(--ring);
 }
 
 
@@ -55,4 +62,8 @@
         text-indent: 0;
         margin-left: 0;
         padding-left: 0;
+        }
+
+        .article-content img {
+        max-width: 100%;
         }
