@@ -6,7 +6,7 @@
     <title>{{$profile->short_name}} || {{$title??''}}</title>
 @php
     $relativePath = 'logos/favicon.png';
-    $storagePath = storage_path('app/public/' . $relativePath);
+    $storagePath = public_path('storage/' . $relativePath);
 
     if (is_file($storagePath)) {
         $faviconUrl = asset('storage/' . $relativePath) . '?v=' . filemtime($storagePath);
