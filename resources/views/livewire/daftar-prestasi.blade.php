@@ -55,11 +55,11 @@
 
                                                     {{ $prestasi->category_achievement->name }}</span>
                                                 <h5 class="card-title"><a href="{{ route('achievement.detail', $prestasi->slug) }}" class="link-accent-title">
-                                                    {{ \Illuminate\Support\Str::limit(strip_tags($prestasi->title), 70, '...') }}
+                                                    {{ \Illuminate\Support\Str::limit(strip_tags($prestasi->title), 50, '...') }}
                                                 </a></h5>
 
                                                 <p class="card-text mt-3">
-                                                    {{ $prestasi->description }}
+                                                    {!! \Illuminate\Support\Str::limit(strip_tags($prestasi->description), 100, '...') !!}
                                                 </p>
                                                   <div class="d-flex justify-content-end">
                                     <a href="{{ route('achievement.detail', $prestasi->slug) }}" 
