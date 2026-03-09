@@ -35,7 +35,7 @@ class Dashboard extends Component
                 ->layout('layouts.landing',[
                     'title'=>'Beranda',
                     'description'=>$profile->welcome_message,
-                    'image'=> $carousels[0]->image,
+                    'image'=> $profile->logo,
                 ]);
     }
 }

@@ -3,7 +3,7 @@
 <meta name="keywords" content="{{$profile->name}}, {{$profile->short_name}}, sekolah, smk, karang baru, pendidikan, teknologi, kejuruan, vokasi, kompetensi, keahlian, jurusan, siswa, guru, kurikulum, ekstrakurikuler, prestasi, lomba, kegiatan, acara, berita, informasi, pengumuman, alumni, kerja sama, industri, magang, praktik kerja industri   ">
 <meta name="author" content="Safrizal">
 
- <!-- Open Graph -->
+<!-- Open Graph -->
 <meta property="og:title" content="{{ $title ?? $profile->name }}">
 <meta property="og:description" content="{{ $description ?? $profile->welcome_message }}">
 <meta property="og:image" content="{{ url('storage/'.($image ?? $profile->logo)) }}">
