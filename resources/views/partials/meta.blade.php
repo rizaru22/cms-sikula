@@ -5,13 +5,17 @@
 
  <!-- Open Graph -->
 <meta property="og:title" content="{{ $title ?? $profile->name }}">
-<meta property="og:description" content="{{ $description ?? $provile->welcome_message }}">
+<meta property="og:description" content="{{ $description ?? $profile->welcome_message }}">
 <meta property="og:image" content="{{ url('storage/'.($image ?? $profile->logo)) }}">
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:type" content="website">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="{{ $profile->name }}">
+<meta property="og:locale" content="id_ID">
     
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title ?? $profile->name }}">
-<meta name="twitter:description" content="{{ $description ?? $provile->welcome_message }}">
+<meta name="twitter:description" content="{{ $description ?? $profile->welcome_message }}">
 <meta name="twitter:image" content="{{ url('storage/'.($image ?? $profile->logo)) }}">
