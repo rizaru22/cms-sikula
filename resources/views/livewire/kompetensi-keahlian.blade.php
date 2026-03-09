@@ -41,7 +41,7 @@
                 Tertarik bergabung dengan jurusan ini?
             </h4>
 
-            <a href="#"
+            <a href="{{ route('ppdb.info') }}"
                class="btn btn-success px-4 py-2">
                 Daftar Sekarang
             </a>
