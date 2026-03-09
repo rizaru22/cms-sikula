@@ -216,7 +216,7 @@
                      data-aos="fade-up"
                      data-aos-delay="{{ ($index % 3) * 100 }}">
 
-                    <div class="card kompetensi-card h-100 border-0 shadow-sm">
+                    <div class="card kompetensi-card h-100 border-0 shadow">
                         <div class="text-center p-4">
 
                             <img src="{{ asset('storage/'.$item->logo) }}"
