@@ -14,4 +14,4 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title ?? $profile->name }}">
 <meta name="twitter:description" content="{{ $description ?? $provile->welcome_message }}">
-<meta name="twitter:image" content="{{ url('storage/'.($image ?? $profile->logo)) }}>
+<meta name="twitter:image" content="{{ url('storage/'.($image ?? $profile->logo)) }}">
