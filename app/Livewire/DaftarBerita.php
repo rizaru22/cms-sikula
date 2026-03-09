@@ -39,7 +39,7 @@ class DaftarBerita extends Component
             ->layout('layouts.landing',[
                 'title'=>'Daftar Berita',
                 'description'=>'Berisi daftar berita terbaru pada'.$profile->name,
-                'image'=> asset('storage/'.$profile->logo),
+                'image'=> $profile->logo,
             ]);
     }
 }

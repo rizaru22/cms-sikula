@@ -16,7 +16,7 @@ class Ppdb extends Component
         return view('livewire.ppdb', compact('ppdb'))->layout('layouts.landing',[
             'title'=>'PPDB',
             'description'=>'Informasi Penerimaan Peserta Didik Baru (PPDB) '.$profile->name.' - '.$profile->description,
-            'image'=> asset('storage/'.$profile->logo),
+            'image'=> $profile->logo,
         ]);
     }
 }

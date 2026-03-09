@@ -28,7 +28,7 @@ class KompetensiKeahlian extends Component
         return view('livewire.kompetensi-keahlian', compact('kompetensi', 'kompetensi_lainnya'))->layout('layouts.landing',[
                     'title'=>"Kompetensi Keahlian",
                     'description'=>\Illuminate\Support\Str::limit(strip_tags($kompetensi->description), 150, '...'),
-                    'image'=> asset('storage/'.$kompetensi->logo),
+                    'image'=> $kompetensi->logo,
                 ]);
     }
 }

@@ -19,7 +19,7 @@ class Produk extends Component
         return view('livewire.produk', compact('product','otherProducts'))->layout('layouts.landing',[
                     'title'=>"Produk",
                     'description'=>\Illuminate\Support\Str::limit(strip_tags($product->description), 150, '...'),
-                    'image'=> asset('storage/'.$product->image),
+                    'image'=> $product->image,
                 ]);
     }
 }

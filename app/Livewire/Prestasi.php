@@ -17,7 +17,7 @@ class Prestasi extends Component
         return view('livewire.prestasi', ['achievement' => $this->achievement])->layout('layouts.landing',[
             'title'=>$this->achievement->title,
             'description'=>\Illuminate\Support\Str::limit(strip_tags($this->achievement->description), 150, '...'),
-            'image'=> asset('storage/'.$this->achievement->image),
+            'image'=> $this->achievement->image,
         ]);
     }
 }

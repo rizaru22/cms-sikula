@@ -45,8 +45,7 @@ class DaftarPrestasi extends Component
             ->layout('layouts.landing',[
                 'title'=>'Daftar Prestasi',
                 'description'=>'Berisi daftar prestasi terbaru pada'.$profile->name,
-                'image'=> asset('storage/'.$profile->logo),
+                'image'=> $profile->logo,
             ]);
-      
     }
 }

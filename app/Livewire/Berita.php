@@ -25,7 +25,7 @@ class Berita extends Component
                 ->layout('layouts.landing',[
                     'title'=>$news->title,
                     'description'=>\Illuminate\Support\Str::limit(strip_tags($news->content), 150, '...'),
-                    'image'=> asset('storage/'.$news->image),
+                    'image'=> $news->image,
                 ]);
     }
 } 

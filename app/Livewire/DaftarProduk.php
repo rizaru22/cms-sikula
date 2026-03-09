@@ -32,7 +32,7 @@ class DaftarProduk extends Component
         ])->layout('layouts.landing',[
             'title'=>'Daftar Produk',
             'description'=>'Berisi daftar produk terbaru pada '.$profile->name,
-            'image'=> asset('storage/'.$profile->logo),
+            'image'=> $profile->logo,
         ]);
     }
 }

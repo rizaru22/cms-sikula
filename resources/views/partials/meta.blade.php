@@ -6,7 +6,7 @@
  <!-- Open Graph -->
 <meta property="og:title" content="{{ $title ?? $profile->name }}">
 <meta property="og:description" content="{{ $description ?? $provile->welcome_message }}">
-<meta property="og:image" content="{{ asset('storage/'. $image ?? $profile->logo) }}">
+<meta property="og:image" content="{{ url('storage/'.($image ?? $profile->logo)) }}">
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:type" content="website">
     
@@ -14,4 +14,4 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title ?? $profile->name }}">
 <meta name="twitter:description" content="{{ $description ?? $provile->welcome_message }}">
-<meta name="twitter:image" content="{{ asset('storage/'. $image ?? $profile->logo) }}">
+<meta name="twitter:image" content="{{ url('storage/'.($image ?? $profile->logo)) }}>
