@@ -376,6 +376,23 @@ footer a:hover {
 .ppdb-content img {
     max-width: 100%;
 }
+
+.video-responsive {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* rasio 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+}
 @media (max-width: 991.98px) {
   .navbar-logo {
     height: 32px;

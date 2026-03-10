@@ -23,7 +23,9 @@ $(document).ready(function() {
             ['insert', ['link', 'picture', 'video']],
             ['view', ['fullscreen', 'codeview', 'help']]
         ],
+
         callbacks: {
+
             onPaste: function (e) {
                 e.preventDefault();
 
@@ -51,7 +53,24 @@ $(document).ready(function() {
                         alert('Gagal mengunggah gambar');
                     }
                 });
+            },
+
+            onChange: function(contents, $editable) {
+
+                $editable.find('iframe').each(function () {
+
+                    if (!$(this).parent().hasClass('video-responsive')) {
+
+                        $(this).removeAttr('width height');
+
+                        $(this).wrap('<div class="video-responsive"></div>');
+
+                    }
+
+                });
+
             }
+
         }
     });
 });
