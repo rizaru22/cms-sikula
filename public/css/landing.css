@@ -141,9 +141,14 @@ footer a:hover {
 }
 
 .navbar-logo {
+ 
   height: 40px;
   width: 40px;
   object-fit: contain;
+  background: #ffffff;
+  padding: 2px;
+  border-radius: 8px;
+
 }
 
 .elegant-img {

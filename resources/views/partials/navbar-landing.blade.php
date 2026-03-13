@@ -5,9 +5,7 @@
           <img
             src="{{asset('storage/'.$profile->logo)}}"
             alt="Logo SMKN 1 Karang Baru"
-            class="navbar-logo"
-            style="height: 40px; width: 40px; object-fit: contain"
-          />
+            class="navbar-logo"/>
           <span class="fw-semibold">{{$profile->name}}</span>
         </a>
         <button
