@@ -4,23 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{$profile->short_name}} || {{$title??''}}</title>
-@php
-    $relativePath = 'logos/favicon.png';
 
-    $path1 = public_path('storage/' . $relativePath); // Laravel normal
-    $path2 = public_path($relativePath); // hosting custom
 
-    if (is_file($path1)) {
-        $faviconUrl = asset('storage/' . $relativePath) . '?v=' . filemtime($path1);
-    } elseif (is_file($path2)) {
-        $faviconUrl = asset($relativePath) . '?v=' . filemtime($path2);
-    } else {
-        $faviconUrl = asset('images/default/favicon.png');
-    }
-@endphp
-
-<link rel="icon" type="image/png" href="{{ $faviconUrl }}">
-<link rel="apple-touch-icon" sizes="180x180" type="image/png" href="{{ $faviconUrl}}">
+<link rel="icon" type="image/png"
+      href="{{ asset('storage/logos/favicon.png') }}"
+      onerror="this.href='{{ asset('images/default/favicon.png') }}'">
+<link rel="apple-touch-icon" sizes="180x180" type="image/png" href="{{ asset('storage/logos/favicon.png') }}" onerror="this.href='{{ asset('images/default/favicon.png') }}'">
 
     @include('partials.meta')
         <!-- Bootstrap 5.3 CDN -->
