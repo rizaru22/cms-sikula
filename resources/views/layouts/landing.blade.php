@@ -6,10 +6,14 @@
     <title>{{$profile->short_name}} || {{$title??''}}</title>
 @php
     $relativePath = 'logos/favicon.png';
-    $storagePath = public_path('storage/' . $relativePath);
 
-    if (is_file($storagePath)) {
-        $faviconUrl = asset('storage/' . $relativePath) . '?v=' . filemtime($storagePath);
+    $path1 = public_path('storage/' . $relativePath); // Laravel normal
+    $path2 = public_path($relativePath); // hosting custom
+
+    if (is_file($path1)) {
+        $faviconUrl = asset('storage/' . $relativePath) . '?v=' . filemtime($path1);
+    } elseif (is_file($path2)) {
+        $faviconUrl = asset($relativePath) . '?v=' . filemtime($path2);
     } else {
         $faviconUrl = asset('images/default/favicon.png');
     }
