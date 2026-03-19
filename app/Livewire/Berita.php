@@ -24,7 +24,7 @@ class Berita extends Component
         return view('livewire.berita',['news'=>$news, 'berita_lainnya'=>$berita_lainnya])
                 ->layout('layouts.landing',[
                     'title'=>$news->title,
-                    'description'=>\Illuminate\Support\Str::limit(strip_tags($news->content), 150, '...'),
+                    'description'=>\Illuminate\Support\Str::limit(strip_tags($news->content), 150),
                     'image'=> $news->image,
                 ]);
     }

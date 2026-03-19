@@ -1,7 +1,7 @@
 <meta name="title" content="{{ $title ?? $profile->name }}">
 <meta name="description" content="{{ $description ?? $profile->vision }}">
 <meta name="keywords" content="{{$profile->name}}, {{$profile->short_name}}, sekolah, smk, karang baru, pendidikan, teknologi, kejuruan, vokasi, kompetensi, keahlian, jurusan, siswa, guru, kurikulum, ekstrakurikuler, prestasi, lomba, kegiatan, acara, berita, informasi, pengumuman, alumni, kerja sama, industri, magang, praktik kerja industri   ">
-<meta name="author" content="Safrizal">
+<meta name="author" content="{{ $profile->name }}">
 
 <!-- Open Graph -->
 <meta property="og:title" content="{{ $title ?? $profile->name }}">

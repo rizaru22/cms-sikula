@@ -17,8 +17,8 @@ class Produk extends Component
         $product = \App\Models\Produk::where('slug', $this->slug)->firstOrFail();
         $otherProducts = \App\Models\Produk::where('slug', '!=', $this->slug)->limit(4)->get();
         return view('livewire.produk', compact('product','otherProducts'))->layout('layouts.landing',[
-                    'title'=>"Produk",
-                    'description'=>\Illuminate\Support\Str::limit(strip_tags($product->description), 150, '...'),
+                    'title'=>"Produk"." - ".$product->name,
+                    'description'=>\Illuminate\Support\Str::limit(strip_tags($product->description), 150),
                     'image'=> $product->image,
                 ]);
     }

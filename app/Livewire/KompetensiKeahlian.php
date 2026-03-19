@@ -20,14 +20,13 @@ class KompetensiKeahlian extends Component
                 ->firstOrFail();
 
         $kompetensi_lainnya = \App\Models\KompetensiKeahlian::where('slug', '!=', $this->slug)
-                ->orderBy('name')
-                ->latest()
+                ->inRandomOrder()
                 ->take(4)
                 ->get();
 
         return view('livewire.kompetensi-keahlian', compact('kompetensi', 'kompetensi_lainnya'))->layout('layouts.landing',[
-                    'title'=>"Kompetensi Keahlian",
-                    'description'=>\Illuminate\Support\Str::limit(strip_tags($kompetensi->description), 150, '...'),
+                    'title'=>"Kompetensi Keahlian"." - ".$kompetensi->name,
+                    'description'=> $kompetensi->description,
                     'image'=> $kompetensi->logo,
                 ]);
     }

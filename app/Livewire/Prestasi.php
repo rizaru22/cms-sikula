@@ -16,7 +16,7 @@ class Prestasi extends Component
         $this->achievement = \App\Models\Achievement::where('slug', $this->slug)->firstOrFail();
         return view('livewire.prestasi', ['achievement' => $this->achievement])->layout('layouts.landing',[
             'title'=>$this->achievement->title,
-            'description'=>\Illuminate\Support\Str::limit(strip_tags($this->achievement->description), 150, '...'),
+            'description'=>\Illuminate\Support\Str::limit(strip_tags($this->achievement->description), 150),
             'image'=> $this->achievement->image,
         ]);
     }
