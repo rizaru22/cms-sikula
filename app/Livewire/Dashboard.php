@@ -34,8 +34,8 @@ class Dashboard extends Component
                     ])  
                 ->layout('layouts.landing',[
                     'title'=>'Beranda',
-                    'description'=>$profile->welcome_message,
-                    'image'=> $profile->logo,
+                    'description'=>$profile?->welcome_message ?? 'Beranda',
+                    'image'=> $profile?->logo ?? asset('images/no-image.png'),
                 ]);
     }
 }

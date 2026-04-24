@@ -2,8 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Achievement;
+use App\Models\KompetensiKeahlian;
+use App\Models\News;
+use App\Models\Produk;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class GenerateSitemap extends Command
 {
@@ -19,27 +23,40 @@ class GenerateSitemap extends Command
      *
      * @var string
      */
-    protected $description = 'Generate sitemap.xml from database entries';
+    protected $description = 'Warm sitemap cache using the current sitemap views';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        //
-        $profiles = DB::table('profiles')->orderBy('updated_at', 'desc')->get();
-        $news  = DB::table('news')->orderBy('updated_at', 'desc')->get();
-        $achievements  = DB::table('achievements')->orderBy('updated_at', 'desc')->get();
-        $kompetensi_keahlians = DB::table('kompetensi_keahlians')->orderBy('updated_at', 'desc')->get();
-        $produks = DB::table('produks')->orderBy('updated_at', 'desc')->get();
-        $agendas = DB::table('agendas')->orderBy('updated_at', 'desc')->get();
-        $pengumumans = DB::table('pengumumans')->orderBy('updated_at', 'desc')->get();
+        Cache::put('sitemap-news', $this->renderUrlset(
+            News::select('slug', 'updated_at')->latest('updated_at')->get(),
+            url('/berita')
+        ), 3600);
 
-        $xml = view('sitemap', compact('profiles', 'news','achievements','kompetensi_keahlians','produks','agendas','pengumumans'))->render();
+        Cache::put('sitemap-prestasi', $this->renderUrlset(
+            Achievement::select('slug', 'updated_at')->latest('updated_at')->get(),
+            url('/prestasi')
+        ), 3600);
 
-        file_put_contents(public_path('sitemap.xml'), $xml);
+        Cache::put('sitemap-produk', $this->renderUrlset(
+            Produk::select('slug', 'updated_at')->latest('updated_at')->get(),
+            url('/produk')
+        ), 3600);
 
-        $this->info('✅ Sitemap berhasil diperbarui!');
+        Cache::put('sitemap-kompetensi', $this->renderUrlset(
+            KompetensiKeahlian::select('slug', 'updated_at')->latest('updated_at')->get(),
+            url('/kompetensi-keahlian')
+        ), 3600);
 
+        $this->info('Sitemap cache berhasil diperbarui.');
+
+        return self::SUCCESS;
+    }
+
+    protected function renderUrlset($items, string $baseUrl): string
+    {
+        return view('sitemap.partials.urlset', compact('items', 'baseUrl'))->render();
     }
 }

@@ -38,8 +38,8 @@ class DaftarBerita extends Component
         return view('livewire.daftar-berita',['daftar_berita'=>$daftar_berita])
             ->layout('layouts.landing',[
                 'title'=>'Daftar Berita',
-                'description'=>'Berisi daftar berita terbaru pada'.$profile->name,
-                'image'=> $profile->logo,
+                'description'=>'Berisi daftar berita terbaru pada '.($profile?->name ?? 'sekolah'),
+                'image'=> $profile?->logo ?? asset('images/no-image.png'),
             ]);
     }
 }

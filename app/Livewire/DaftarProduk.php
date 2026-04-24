@@ -31,8 +31,8 @@ class DaftarProduk extends Component
             'profile'=>$profile
         ])->layout('layouts.landing',[
             'title'=>'Daftar Produk',
-            'description'=>'Berisi daftar produk terbaru pada '.$profile->name,
-            'image'=> $profile->logo,
+            'description'=>'Berisi daftar produk terbaru pada '.($profile?->name ?? 'sekolah'),
+            'image'=> $profile?->logo ?? asset('images/no-image.png'),
         ]);
     }
 }

@@ -64,7 +64,7 @@ class SchoolProfileController extends Controller
             $logoPath = $request->file('logo')->store('logos','public');
         }
 
-        $profile = Profile::first();
+        $profile = Profile::first() ?? new Profile();
         $profile->name=$request->name;
         $profile->short_name=$request->short_name;
         $profile->email=$request->email;

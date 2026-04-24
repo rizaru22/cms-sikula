@@ -44,8 +44,8 @@ class DaftarPrestasi extends Component
         return view('livewire.daftar-prestasi',['daftar_prestasi'=>$daftar_prestasi])
             ->layout('layouts.landing',[
                 'title'=>'Daftar Prestasi',
-                'description'=>'Berisi daftar prestasi terbaru pada'.$profile->name,
-                'image'=> $profile->logo,
+                'description'=>'Berisi daftar prestasi terbaru pada '.($profile?->name ?? 'sekolah'),
+                'image'=> $profile?->logo ?? asset('images/no-image.png'),
             ]);
     }
 }

@@ -24,12 +24,16 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->prefix('admin')->group(function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::resource('profile', SchoolProfileController::class)->names('admin.profile');
+    Route::resource('profile', SchoolProfileController::class)
+        ->only(['index', 'edit', 'update'])
+        ->names('admin.profile');
     Route::resource('news', NewsController::class)->names('admin.news');
     Route::resource('achievement', AchievementController::class)->names('admin.achievement');
     Route::resource('product', ProductController::class)->names('admin.product');
     Route::resource('agenda', AgendaController::class)->names('admin.agenda');
-    Route::resource('announcement', AnnouncementController::class)->names('admin.announcement');
+    Route::resource('announcement', AnnouncementController::class)
+        ->except(['show'])
+        ->names('admin.announcement');
     Route::resource('users', UsersController::class)->names('admin.users');
     Route::post('/summernote/upload', [SummernoteController::class, 'upload'])->name('admin.summernote.upload');
     Route::resource('carousel', \App\Http\Controllers\CarouselController::class)->names('admin.carousel');
@@ -37,7 +41,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
     Route::resource('kompetensi', \App\Http\Controllers\KompetensiController::class)->names('admin.kompetensi');
     Route::resource('link', \App\Http\Controllers\LinkController::class)->names('admin.link')->except(['show']);
     Route::patch('link/{id}/toggle', [\App\Http\Controllers\LinkController::class, 'toggle'])->name('admin.link.toggle');
-    Route::resource('announcement', \App\Http\Controllers\AnnouncementController::class)->names('admin.announcement')->except(['show']);
     Route::resource('ppdb', \App\Http\Controllers\PpdbController::class)->names('admin.ppdb');
     Route::patch('ppdb/{id}/toggle-status', [\App\Http\Controllers\PpdbController::class, 'toggleStatus'])->name('admin.ppdb.toggleStatus');
     Route::patch('ppdb/{id}/toggle-active', [\App\Http\Controllers\PpdbController::class, 'activate'])->name('admin.ppdb.toggleActive');
