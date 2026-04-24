@@ -497,14 +497,13 @@ footer a:hover {
     transform: none;
   }
 
+  #homepage .elegant-img {
+    transition: opacity 0.35s ease;
+  }
+
   #homepage .pagination {
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  #homepage [data-aos^="fade"],
-  #homepage [data-aos="zoom-in"] {
-    overflow-x: hidden;
   }
 
   .card-header.d-flex,
