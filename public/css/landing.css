@@ -7,6 +7,12 @@ body {
   overflow-x: clip;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* ================= NAVBAR ================= */
 .navbar {
   background: var(--navbar-bg);
@@ -154,6 +160,13 @@ footer a:hover {
 
 .elegant-img {
   transition: transform 6s ease, opacity 2s ease;
+}
+
+#homepage,
+#homepage .carousel,
+#homepage .carousel-inner,
+#homepage .carousel-item {
+  overflow-x: hidden;
 }
 
 .carousel-item.active .elegant-img {
@@ -480,6 +493,20 @@ footer a:hover {
 }
 
 @media (max-width: 767.98px) {
+  #homepage .carousel-item.active .elegant-img {
+    transform: none;
+  }
+
+  #homepage .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #homepage [data-aos^="fade"],
+  #homepage [data-aos="zoom-in"] {
+    overflow-x: hidden;
+  }
+
   .card-header.d-flex,
   #prestasi .d-flex.align-items-center.justify-content-between {
     flex-wrap: wrap;

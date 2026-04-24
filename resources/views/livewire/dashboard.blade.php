@@ -2,7 +2,7 @@
 @push('head')
     <link rel="preload" as="image" href="{{ asset('storage/' . $carousels->first()->image) }}">
 @endpush
-<div>
+<div id="homepage">
     <!-- Carousel -->
     <div id="carouselElegant" class="carousel slide carousel-fade mt-3 pt-5" data-bs-ride="carousel">
         <div class="carousel-inner">
