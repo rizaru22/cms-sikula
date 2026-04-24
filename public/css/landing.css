@@ -4,13 +4,6 @@
 body {
   background: var(--bg);
   color: var(--text);
-  overflow-x: clip;
-}
-
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
 }
 
 /* ================= NAVBAR ================= */
@@ -162,12 +155,6 @@ footer a:hover {
   transition: transform 6s ease, opacity 2s ease;
 }
 
-#homepage,
-#homepage .carousel,
-#homepage .carousel-inner,
-#homepage .carousel-item {
-  overflow-x: hidden;
-}
 
 .carousel-item.active .elegant-img {
   transform: scale(1.1);
@@ -251,15 +238,6 @@ footer a:hover {
   background: #ffffff;
   padding: 2px;              /* jangan terlalu tipis */
   border-radius: 8px;        /* lebih kecil = lebih elegan */
-}
-
-.navbar-brand {
-  min-width: 0;
-}
-
-.navbar-brand span {
-  min-width: 0;
-  overflow-wrap: anywhere;
 }
 
 .navbar .nav-link {
@@ -493,19 +471,6 @@ footer a:hover {
 }
 
 @media (max-width: 767.98px) {
-  #homepage .carousel-item.active .elegant-img {
-    transform: none;
-  }
-
-  #homepage .elegant-img {
-    transition: opacity 0.35s ease;
-  }
-
-  #homepage .pagination {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .card-header.d-flex,
   #prestasi .d-flex.align-items-center.justify-content-between {
     flex-wrap: wrap;

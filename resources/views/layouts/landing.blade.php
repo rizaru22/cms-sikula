@@ -74,11 +74,8 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
           document.addEventListener('DOMContentLoaded', function () {
-              const isSmallScreen = window.matchMedia('(max-width: 767.98px)').matches;
-
               AOS.init({
-                  disable: isSmallScreen,
-                  duration: isSmallScreen ? 0 : 700,
+                  duration: 700,
                   easing: 'ease-in-out',
                   once: true,
                   offset: 80

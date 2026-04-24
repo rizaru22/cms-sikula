@@ -75,7 +75,7 @@
                 <!-- Pengumuman (Grid 4) -->
                 <div class="col-lg-4 col-md-3 col-sm-12">
                     <!-- Product -->
-                    <div class="card" data-aos="fade-left">
+                    <div class="card" data-aos="fade-right" data-aos-delay="100">
                         <div class="card-header">
                             <h3 class="m-0 section-title">Produk</h3>
                         </div>
@@ -114,7 +114,7 @@
                         </div>
                     </div>
 
-                    <div class="card mt-5" data-aos="fade-left" data-aos-delay="100">
+                    <div class="card mt-5" data-aos="fade-up" data-aos-delay="100">
     <div class="card-header">
         <h3 class="m-0 section-title">Pengumuman</h3>
     </div>
