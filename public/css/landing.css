@@ -4,6 +4,7 @@
 body {
   background: var(--bg);
   color: var(--text);
+  overflow-x: clip;
 }
 
 /* ================= NAVBAR ================= */
@@ -239,6 +240,15 @@ footer a:hover {
   border-radius: 8px;        /* lebih kecil = lebih elegan */
 }
 
+.navbar-brand {
+  min-width: 0;
+}
+
+.navbar-brand span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .navbar .nav-link {
   position: relative;
 }
@@ -467,4 +477,43 @@ footer a:hover {
 
 .footer-social i {
     font-size: 1.2rem;
+}
+
+@media (max-width: 767.98px) {
+  .card-header.d-flex,
+  #prestasi .d-flex.align-items-center.justify-content-between {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .card-header .btn,
+  #prestasi .btn {
+    width: 100%;
+  }
+
+  #beranda .card-body .d-flex.align-items-center.border.rounded.p-2 {
+    align-items: flex-start !important;
+  }
+
+  #beranda .card-body .d-flex.align-items-center.border.rounded.p-2 > .flex-grow-1 {
+    min-width: 0;
+  }
+
+  #beranda .card-body .d-flex.gap-2 {
+    flex-wrap: wrap;
+  }
+
+  #beranda .card-body .d-flex.gap-2 > .btn {
+    flex: 1 1 100%;
+  }
+
+  footer .border-top.d-flex {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-social {
+    margin-left: 0 !important;
+    width: 100%;
+  }
 }
